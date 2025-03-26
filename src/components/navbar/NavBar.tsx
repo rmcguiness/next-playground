@@ -1,8 +1,10 @@
+import Link from "next/link";
+
 export default function NavBar() {
   return (
     <nav className="bg-gray-800 p-4">
     <div className="max-w-7xl mx-auto flex justify-between items-center">
-      <h1 className="text-white text-xl font-bold">Next Playground</h1>
+      <Link href="/" className="text-white text-xl font-bold">Next Playground</Link>
       <div className="relative group">
         <button className="text-white hover:text-gray-300 px-4 py-2 rounded-md focus:outline-none">
           Pages ▼
