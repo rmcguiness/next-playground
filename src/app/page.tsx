@@ -21,8 +21,8 @@ export default function Home() {
           <div className="space-y-4 font-mono text-sm">
             <div className="bg-gray-800 text-white p-4 rounded-md">
               <p className="text-green-400 mb-2"># Clone and install dependencies</p>
-              <code>git clone https://github.com/yourusername/next-playground.git</code><br/>
-              <code>cd next-playground</code><br/>
+              <code>git clone https://github.com/yourusername/next-playground.git</code><br />
+              <code>cd next-playground</code><br />
               <code>npm install</code>
             </div>
 

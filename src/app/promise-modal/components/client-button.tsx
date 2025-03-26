@@ -48,11 +48,10 @@ export default function ClientButton({ modalInfo, remainingModalInfoPromise }: C
       <button
         onClick={() => setIsModalOpen(true)}
         disabled={isLoading && currentIndex >= allModalInfo.length}
-        className={`px-4 py-2 rounded-md transition-colors ${
-          isLoading && currentIndex >= allModalInfo.length
+        className={`px-4 py-2 rounded-md transition-colors ${isLoading && currentIndex >= allModalInfo.length
             ? 'bg-gray-400 cursor-not-allowed'
             : 'bg-blue-500 hover:bg-blue-600 text-white'
-        }`}
+          }`}
       >
         {isLoading && currentIndex >= allModalInfo.length ? 'Loading...' : 'Open Modal'}
       </button>
