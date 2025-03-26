@@ -1,12 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-interface ModalInfo {
-  id: number;
-  title: string;
-  body: string;
-  // ... other fields from your API
-}
+import { ModalInfo } from '../types';
+
 
 interface ClientButtonProps {
   modalInfo: ModalInfo;
@@ -30,9 +26,6 @@ export default function ClientButton({ modalInfo, remainingModalInfoPromise }: C
     }
   }, [remainingModalInfoPromise]);
 
-  const handleClick = () => {
-    setCurrentIndex((prev) => (prev + 1) % allModalInfo.length);
-  };
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -65,10 +58,10 @@ export default function ClientButton({ modalInfo, remainingModalInfoPromise }: C
       </button>
 
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="fixed inset-0 flex items-center justify-center">
           <div className="bg-white rounded-lg p-6 max-w-md w-full">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl font-semibold">{allModalInfo[currentIndex].title}</h2>
+              <h2 className="text-xl font-semibold text-gray-800">{allModalInfo[currentIndex].title}</h2>
               <button
                 onClick={() => setIsModalOpen(false)}
                 className="text-gray-500 hover:text-gray-700"
@@ -76,7 +69,7 @@ export default function ClientButton({ modalInfo, remainingModalInfoPromise }: C
                 ✕
               </button>
             </div>
-            <div className="mb-4">
+            <div className="mb-4 text-gray-600">
               <p>{allModalInfo[currentIndex].body}</p>
             </div>
             <div className="flex justify-end">
