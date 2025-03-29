@@ -1,5 +1,4 @@
-import Image from "next/image";
-import ServerButtonWrapper from "./promise-modal/components/server-button-wrapper";
+import { cookies } from "next/headers";
 import NavBar from "@/components/navbar/NavBar";
 
 export default function Home() {

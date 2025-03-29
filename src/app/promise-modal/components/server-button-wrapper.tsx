@@ -1,3 +1,4 @@
+import { sleep } from '@/utils/sleep';
 import ClientButton from './client-button';
 
 interface ServerButtonWrapperProps {
@@ -29,5 +30,3 @@ export default async function ServerButtonWrapper({ configIds }: ServerButtonWra
         />
     );
 }
-
-const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));

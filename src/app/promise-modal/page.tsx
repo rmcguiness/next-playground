@@ -1,6 +1,6 @@
-import Image from "next/image";
 import ServerButtonWrapper from "./components/server-button-wrapper";
 import NavBar from "@/components/navbar/NavBar";
+
 export default function PromiseModalPage() {
   const configIds = [1, 2, 3, 4, 5];
   return (
