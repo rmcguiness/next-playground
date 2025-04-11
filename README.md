@@ -1,38 +1,110 @@
 # Next Playground
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+A modern Next.js 15 application with Supabase authentication and a custom Express backend server.
+
+## Features
+
+- Next.js 15 with App Router
+- React 19
+- Supabase Authentication
+- TailwindCSS 4
+- TypeScript
+- Jest testing setup
+
+## Prerequisites
+
+- Node.js 18.x or higher
+- npm or yarn
+- Supabase account
+
+## Environment Setup
+
+### 1. Frontend Setup (.env.local in project root)
+
+Create a `.env.local` file in the root of your project with the following variables:
+
+```
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+NEXT_PUBLIC_API_URL=http://localhost:5000/api
+```
 
 ## Getting Started
 
-First, run the development server:
+### 1. Install Dependencies
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Install frontend dependencies
+npm install
+
+# Install backend dependencies
+cd playground-server
+npm install
+cd ..
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Set Up Supabase
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Create a project at [supabase.com](https://supabase.com)
+2. Get your project URL and anon key from the project settings
+3. Add these to your `.env.local` file
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. Start the Development Servers
+
+```bash
+# In a new terminal, start the Next.js dev server
+cd next-playground
+npm run dev
+```
+
+### 5. Access the Application
+
+- [http://localhost:3000](http://localhost:3000)
+
+## Available Scripts
+
+### Frontend
+
+```bash
+# Development
+npm run dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
+
+# Run linter
+npm run lint
+
+# Run tests
+npm test
+npm run test:watch
+npm run test:coverage
+```
+
+## Project Structure
+
+```
+next-playground/
+├── public/             # Static files
+├── src/
+│   ├── app/            # Next.js App Router pages
+│   ├── components/     # React components
+│   └── utils/          # Utility functions and Supabase setup
+└── .env.local          # Frontend environment variables
+```
+
+## Authentication Flow
+
+This application uses Supabase for authentication. The authentication flow works as follows:
+
+1. User signs up or logs in via the login page
+2. Supabase handles the authentication and session management
+3. Protected routes check for user session before allowing access
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Supabase Documentation](https://supabase.com/docs)

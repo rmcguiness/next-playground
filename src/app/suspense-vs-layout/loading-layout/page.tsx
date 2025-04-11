@@ -1,5 +1,3 @@
-import NavBar from "@/components/navbar/NavBar";
-
 async function SlowComponent() {
   // Simulate a slow data fetch
   await new Promise(resolve => setTimeout(resolve, 5000));
@@ -15,7 +13,6 @@ async function SlowComponent() {
 export default function SuspensePage() {
   return (
     <div className="min-h-screen">
-      <NavBar />
       <main className="max-w-7xl mx-auto p-8">
         <h1 className="text-2xl font-bold mb-8">Loading Layout Demo Page</h1>
 

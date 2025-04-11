@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import ServerButtonWrapper from "../app/promise-modal/components/server-button-wrapper";
+import ServerButtonWrapper from "../app/protected/promise-modal/components/server-button-wrapper";
 
 jest.mock('next/navigation', () => ({
   useParams: () => ({

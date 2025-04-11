@@ -1,15 +1,22 @@
-import NavBar from "@/components/navbar/NavBar";
+import { createClient } from "@/utils/supabase/server";
 
-export default function Home() {
+export default async function Home() {
+  const supabase = await createClient()
+  const { data, error } = await supabase.auth.getUser()
+  const isLoggedIn = data?.user;
   return (
     <div className="min-h-screen">
-      <NavBar />
       <main className="max-w-7xl mx-auto p-8">
         <div className="text-center">
           <h2 className="text-3xl font-bold mb-4">Welcome to My Next Playground</h2>
-          <p className="text-gray-600">Select a demo from the navigation menu to explore different Next.js features</p>
+          {isLoggedIn
+            ?
+            <p className="text-gray-600">Select a demo from the navigation menu to explore different Next.js features</p>
+            :
+            <p className="text-gray-600">Please login to explore different Next.js features</p>
+          }
         </div>
-        <div className="mt-12 p-6 bg-gray-100 rounded-lg shadow-sm">
+        <div className="mt-6 p-6 bg-gray-100 rounded-lg shadow-sm">
           <h3 className="text-2xl font-bold mb-4 text-gray-700">Getting Started</h3>
           <div className="space-y-4 font-mono text-sm">
             <div className="bg-gray-800 text-white p-4 rounded-md">
@@ -20,13 +27,20 @@ export default function Home() {
             </div>
 
             <div className="bg-gray-800 text-white p-4 rounded-md">
+              <p className="text-green-400 mb-2"># Connect to Supabase</p>
+              <code>create a project at supabase.com</code><br />
+              <code>get your project URL and anon key from the project settings</code><br />
+              <code>add these to your .env.local file</code>
+            </div>
+
+            <div className="bg-gray-800 text-white p-4 rounded-md">
               <p className="text-green-400 mb-2"># Run the development server</p>
               <code>npm run dev</code>
             </div>
 
             <div className="bg-gray-800 text-white p-4 rounded-md">
               <p className="text-green-400 mb-2"># Open your browser and navigate to:</p>
-              <code className="text-blue-600">http://localhost:3000</code>
+              <code className="text-blue-400">http://localhost:3000</code>
             </div>
           </div>
 
@@ -35,6 +49,8 @@ export default function Home() {
             <ul className="list-disc list-inside space-y-1 ml-4">
               <li>Suspense vs Loading Layout patterns</li>
               <li>Promise-based Modal implementations</li>
+              <li>Dynamic Navbar with Supabase Auth</li>
+              <li>Jest and React Testing Library</li>
               <li>And more features coming soon!</li>
             </ul>
           </div>

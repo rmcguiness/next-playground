@@ -1,9 +1,7 @@
-import NavBar from "@/components/navbar/NavBar";
 
 export default function Loading() {
   return (
     <div className="min-h-screen">
-      <NavBar />
       <main className="max-w-7xl mx-auto p-8">
         <div className="animate-pulse">
           <div className="h-8 w-48 bg-gray-200 rounded mb-8"></div>

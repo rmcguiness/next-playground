@@ -1,4 +1,3 @@
-import NavBar from "@/components/navbar/NavBar";
 import { Suspense } from "react";
 
 async function SlowComponent() {
@@ -16,7 +15,6 @@ async function SlowComponent() {
 export default function SuspensePage() {
   return (
     <div className="min-h-screen">
-      <NavBar />
       <main className="max-w-7xl mx-auto p-8">
         <h1 className="text-2xl font-bold mb-8">Suspense Demo Page</h1>
 
