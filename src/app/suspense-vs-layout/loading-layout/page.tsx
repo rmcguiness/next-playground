@@ -1,5 +1,4 @@
 import NavBar from "@/components/navbar/NavBar";
-import { Suspense } from "react";
 
 async function SlowComponent() {
   // Simulate a slow data fetch

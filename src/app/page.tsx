@@ -1,12 +1,6 @@
-import { cookies } from "next/headers";
 import NavBar from "@/components/navbar/NavBar";
 
 export default function Home() {
-  const configIds = [1, 2, 3, 4, 5];
-  const removeDecimal = (price: number): string => {
-    const flooredPrice = Math.floor(price);
-    return flooredPrice.toLocaleString('en-US');
-  };
   return (
     <div className="min-h-screen">
       <NavBar />

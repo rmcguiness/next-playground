@@ -13,9 +13,9 @@ export default async function ServerButtonWrapper({ configIds }: ServerButtonWra
     // Fetch the rest of the configs in parallel
     const remainingConfigs = configIds.slice(1);
     const remainingModalInfoPromise = Promise.all(
-        remainingConfigs.map(async (id, index) => {
+        remainingConfigs.map(async (id) => {
             // Don't wait before the first request
-            await sleep(15000); // Wait 15 seconds
+            await sleep(5000); // Wait 5 seconds
             const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
             const data = await response.json();
             console.log(`Fetched data for config ID ${id}:`, data);
