@@ -9,7 +9,7 @@ async function NavBar() {
   const { data, error } = await supabase.auth.getUser()
   const isLoggedIn = data?.user;
   return (
-    <nav className="bg-gradient-to-r from-slate-900 to-slate-800 shadow-lg p-4 fixed w-full z-10">
+    <nav className="bg-gradient-to-r from-slate-900 to-slate-800 shadow-lg p-4 fixed w-full z-100">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <Link href="/" className="flex items-center space-x-2">
           <div className="bg-green-600 text-white p-2 rounded-md">
