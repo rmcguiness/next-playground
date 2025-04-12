@@ -1,23 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import { NavBar } from "@/components/navbar";
+import "../globals.css";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 
-const geistSans = Geist({
-    subsets: ["latin"],
-    display: "swap",
-    variable: "--font-geist-sans",
-    adjustFontFallback: false, // Prevents auto font fallback adjustment
-});
-
-const geistMono = Geist_Mono({
-    subsets: ["latin"],
-    display: "swap",
-    variable: "--font-geist-mono",
-    adjustFontFallback: false,
-});
 
 export const metadata: Metadata = {
     title: "Create Next App",
