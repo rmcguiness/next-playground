@@ -30,7 +30,7 @@ async function NavBar() {
             </button>
             <div className="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 origin-top-right">
               <div className="py-2">
-                <div className="px-4 py-2 text-sm text-gray-500 border-b border-gray-100">Demos</div>
+                <div className="px-4 py-2 text-sm text-gray-500 border-b border-gray-100">Tech Demos</div>
                 <a href="/protected/suspense-vs-layout/suspense" className="flex items-center px-4 py-3 text-gray-800 hover:bg-gray-50 transition duration-200">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -48,6 +48,13 @@ async function NavBar() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
                   </svg>
                   Promise Modal
+                </a>
+                <div className="px-4 py-2 text-sm text-gray-500 border-b border-gray-100">Portfolios</div>
+                <a href="/protected/portfolios/demo1" className="flex items-center px-4 py-3 text-gray-800 hover:bg-gray-50 transition duration-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  Resume Demo 1
                 </a>
                 <div className="border-t border-gray-100 mt-2 pt-2">
                   <CustomButton text="Sign Out" style="flex w-full items-center px-4 py-3 text-gray-800 hover:bg-red-50 hover:text-red-500 transition duration-200" />
