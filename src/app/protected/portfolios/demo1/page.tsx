@@ -3,10 +3,9 @@ import CardWrapper from "@/components/card-wrapper/card-wrapper";
 export default function Demo1() {
     return (
         <div>
-            <h1 className="text-center my-8">Demo 1</h1>
+            <h1 className="text-center my-8">Resume Demo 1</h1>
             <CardWrapper>
-                <h2>Resume </h2>
-                <div className="max-w-4xl mx-auto px-4 py-8">
+                <div className="max-w-3xl mx-auto px-4 py-8">
                     <div className="mb-8">
                         <h1 className="text-3xl font-bold text-gray-900">John Doe</h1>
                         <p className="text-gray-600">Senior Software Engineer</p>
@@ -95,7 +94,7 @@ export default function Demo1() {
                         </div>
                     </div>
                 </div>
-            </CardWrapper>
-        </div>
+            </CardWrapper >
+        </div >
     );
 }
