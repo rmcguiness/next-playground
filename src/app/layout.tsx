@@ -15,7 +15,7 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en" className={""}>
-      <body className="">
+      <body className="bg-gradient-to-b min-h-screen from-slate-50 to-slate-100">
         <NavBar />
         <div className="pt-16">
           {children}

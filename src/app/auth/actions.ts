@@ -2,7 +2,7 @@
 
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
-
+import { cookies } from 'next/headers'
 import { createClient } from '@/utils/supabase/server'
 
 export async function login(formData: FormData) {
@@ -24,6 +24,22 @@ export async function login(formData: FormData) {
     redirect('/error')
   }
 
+  if( formData.get('remember-me') === 'on'){
+    const expirationTime = 60 * 60 * 24 * 30  // 30 days in seconds
+
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session?.access_token) {
+      redirect('/error');
+    }
+
+    (await cookies()).set('session', session.access_token, { 
+      httpOnly: true,
+      expires: new Date(Date.now() + expirationTime * 1000),
+      secure: process.env.NODE_ENV === 'production',
+      path: '/'
+    });
+  }
+  
   revalidatePath('/', 'layout')
   redirect('/')
 }

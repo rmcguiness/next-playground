@@ -1,13 +1,13 @@
 import { createClient } from "@/utils/supabase/server";
 import Link from "next/link";
-
+import CustomButton from "@/components/buttons/dynamic-nav-button";
 export default async function Home() {
   const supabase = await createClient()
   const { data, error } = await supabase.auth.getUser()
   const isLoggedIn = data?.user;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 z-0">
       <div className="pt-24 pb-16 md:pt-32 md:pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
@@ -23,21 +23,17 @@ export default async function Home() {
 
             {!isLoggedIn && (
               <div className="mt-8 flex justify-center space-x-4">
-                <Link href="/auth/login" className="px-6 py-3 text-base font-medium rounded-md text-white bg-gradient-to-r from-slate-800 to-slate-700 hover:from-slate-700 hover:to-slate-600 shadow-md transition duration-300">
-                  Login
-                </Link>
-                <Link href="/auth/signup" className="px-6 py-3 text-base font-medium rounded-md text-white bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 shadow-md transition duration-300">
-                  Sign Up
-                </Link>
+                <CustomButton text="Login" style="px-6 py-3 text-base font-medium rounded-md text-white bg-gradient-to-r from-slate-800 to-slate-700 hover:from-slate-700 hover:to-slate-600 shadow-md transition duration-300" />
+                <CustomButton text="Sign Up" style="px-6 py-3 text-base font-medium rounded-md text-white bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 shadow-md transition duration-300" />
               </div>
             )}
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 z-1">
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-          <div className="relative z-10 bg-white pb-8">
+          <div className="relative z-2 bg-white pb-8">
             <div className="relative pt-8 px-4 sm:px-6 lg:px-8">
               <div className="text-center">
                 <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
@@ -82,7 +78,7 @@ export default async function Home() {
                       <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                       <div className="w-3 h-3 rounded-full bg-green-500"></div>
                     </div>
-                    <span className="ml-4 font-mono text-sm text-gray-400">Setup</span>
+                    <span className="ml-4 font-mono text-sm text-gray-400">Browser</span>
                   </div>
                 </div>
                 <div className="px-6 py-6">
@@ -98,7 +94,7 @@ export default async function Home() {
             </div>
 
             <div className="mt-10 rounded-xl bg-gradient-to-r from-slate-50 to-white p-6 border border-gray-200 shadow-sm">
-              <h3 className="text-lg font-bold text-gray-900 mb-4">Features Included</h3>
+              <h3 className="text-lg font-bold text-gray-900 mb-4">Subjects Include</h3>
               <div className="grid gap-3 md:grid-cols-2">
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
