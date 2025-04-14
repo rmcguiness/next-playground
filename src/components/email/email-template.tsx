@@ -74,7 +74,7 @@ export default function EmailTemplate() {
           marginTop: '24px',
           color: '#6b7280', // gray-500
         }}>
-          If you didn't create an account, you can safely ignore this email.
+          If you didn&apos;t create an account, you can safely ignore this email.
         </p>
       </div>
 
@@ -84,7 +84,7 @@ export default function EmailTemplate() {
         color: '#6b7280', // gray-500
       }}>
         <p>© 2023 Your Company. All rights reserved.</p>
-        <p>If you're having trouble clicking the button, copy and paste this URL into your browser:</p>
+        <p>If you&apos;re having trouble clicking the button, copy and paste this URL into your browser:</p>
         <p style={{ wordBreak: 'break-all' }}>{ }</p>
       </div>
     </div>

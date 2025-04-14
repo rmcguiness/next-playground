@@ -6,7 +6,7 @@ import CustomButton from "../buttons/dynamic-nav-button";
 
 async function NavBar() {
   const supabase = await createClient()
-  const { data, error } = await supabase.auth.getUser()
+  const { data } = await supabase.auth.getUser()
   const isLoggedIn = data?.user;
   return (
     <nav className="bg-gradient-to-r from-slate-900 to-slate-800 shadow-lg p-4 fixed w-full z-10">

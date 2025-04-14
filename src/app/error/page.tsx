@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import { useEffect, useState } from 'react';
 import Link from "next/link";
 
@@ -74,7 +74,7 @@ export default function ErrorPage() {
 
                 <div className="bg-slate-800/50 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-slate-700 mb-8 error-card">
                     <p className="text-gray-300 mb-4">
-                        We've encountered an unexpected error while processing your request.
+                        We&apos;ve encountered an unexpected error while processing your request.
                     </p>
                     <div className="space-y-2 text-left text-sm font-mono bg-black/30 p-4 rounded mb-4 typing-animation overflow-hidden">
                         <p><span className="text-green-500">{'>'}</span> <span className="text-gray-400">ERROR_CODE:</span> 0x8007045B</p>

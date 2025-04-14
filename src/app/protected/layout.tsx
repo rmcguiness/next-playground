@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
@@ -16,7 +15,7 @@ export default async function RootLayout({
     children: React.ReactNode;
 }>) {
     const supabase = await createClient();
-    const { data, error } = await supabase.auth.getUser()
+    const { error } = await supabase.auth.getUser()
     if (error) {
         redirect('/')
     }

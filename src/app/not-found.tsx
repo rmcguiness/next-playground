@@ -111,7 +111,7 @@ export default function NotFound() {
 
                 <div className="bg-slate-800/50 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-slate-700 mb-8 error-card">
                     <p className="text-gray-300 mb-4">
-                        We've encountered an unexpected error while processing your request.
+                        We&apos;ve encountered an unexpected error while processing your request.
                     </p>
                     <div className="space-y-2 text-left text-sm font-mono bg-black/30 p-4 rounded mb-4 typing-animation overflow-hidden">
                         <p>

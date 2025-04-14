@@ -1,9 +1,9 @@
 import { createClient } from "@/utils/supabase/server";
-import Link from "next/link";
 import CustomButton from "@/components/buttons/dynamic-nav-button";
+
 export default async function Home() {
   const supabase = await createClient()
-  const { data, error } = await supabase.auth.getUser()
+  const { data } = await supabase.auth.getUser()
   const isLoggedIn = data?.user;
 
   return (
