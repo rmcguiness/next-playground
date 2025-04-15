@@ -59,12 +59,11 @@ export default function LoginPage() {
                                     Remember me
                                 </label>
                             </div>
-
-                            <div className="text-sm">
+                            {/* <div className="text-sm">
                                 <a href="#" className="font-medium text-green-600 hover:text-green-500">
                                     Forgot your password?
                                 </a>
-                            </div>
+                            </div> */}
                         </div>
 
                         <div>

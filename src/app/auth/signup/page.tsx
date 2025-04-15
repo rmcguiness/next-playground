@@ -1,9 +1,43 @@
+'use client';
+
 import Link from "next/link";
 import { signup } from "../actions";
 import { PasswordInput } from "../components/password-input";
-// import ThirdPartySignin from "../components/third-party-signin";
+import { useState } from "react";
+import ErrorAlert from "../components/error-alert";
+
 
 export default function SignupPage() {
+    const [error, setError] = useState<string | null>(null);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    async function handleSignup(formData: FormData) {
+        setError(null); // Clear previous errors
+        setIsSubmitting(true);
+        try {
+            const result = await signup(formData);
+            console.log(result);
+            setIsSubmitting(false);
+
+            if (result?.error) {
+                // Handle specific error messages from Supabase
+                switch (result.error) {
+                    case 'User already registered':
+                        setError('This email is already registered. Please try signing in instead.');
+                        break;
+                    case 'Password should be at least 6 characters':
+                        setError('Please use a stronger password (at least 6 characters).');
+                        break;
+                    default:
+                        setError(result.error || 'Something went wrong during signup. Please try again.');
+                }
+            }
+            // Success handling is likely handled by a redirect in your signup action
+        } catch (err: any) {
+            setError(err?.message || 'An unexpected error occurred. Please try again later.');
+        }
+    }
+
     return (
         <div className=" from-slate-50 to-slate-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -27,7 +61,10 @@ export default function SignupPage() {
 
             <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
                 <div className="bg-white py-8 px-4 shadow-xl rounded-lg sm:px-10">
-                    <form action={signup} className="space-y-6">
+                    {/* Display error message if exists */}
+                    {error && <ErrorAlert message={error} />}
+
+                    <form action={handleSignup} className="space-y-6">
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                                 Email address
@@ -86,9 +123,10 @@ export default function SignupPage() {
                         <div>
                             <button
                                 type="submit"
-                                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-300"
+                                disabled={isSubmitting}
+                                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
                             >
-                                Sign up
+                                {isSubmitting ? 'Signing up...' : 'Sign up'}
                             </button>
                         </div>
                     </form>
