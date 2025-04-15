@@ -27,10 +27,10 @@ export default function Demo1() {
                             <h3 className="text-xl font-medium text-gray-700">Software Engineer</h3>
                             <p className="text-gray-600">Perficient, Inc. | June 2022 - Present | Allentown, PA</p>
                             <ul className="list-disc list-inside mt-2 text-gray-600">
-                                <li>Developed and optimized headless e-commerce websites using Next.js and TypeScript. Utilized Next.js' client and server components to improve performance, SEO, and UI/UX.</li>
+                                <li>Developed and optimized headless e-commerce websites using Next.js and TypeScript. Utilized Next.js&apos; client and server components to improve performance, SEO, and UI/UX.</li>
                                 <li>Spearheaded multiple high-priority items for clients, such as initializing Jest for robust testing, and setting up Mock Service Workers to simulate API responses. Resulting in improving code coverage by 90% on the entire codebase.</li>
                                 <li>Collaborated with management, developers, and quality assurance to create tasks, assign deadlines, and deliver software solutions on time in accordance with project goals and expectations.</li>
-                                <li>Leveraged Figma blueprints, translating them into code while adhering to best coding practices for enhanced readability and performance optimization. Then, styled the pages using clients' preferred styling language, whether CSS, Tailwind, or Sass.</li>
+                                <li>Leveraged Figma blueprints, translating them into code while adhering to best coding practices for enhanced readability and performance optimization. Then, styled the pages using clients&apos; preferred styling language, whether CSS, Tailwind, or Sass.</li>
                             </ul>
                         </div>
 
