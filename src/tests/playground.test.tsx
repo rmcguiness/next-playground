@@ -10,6 +10,7 @@ jest.mock('next/navigation', () => ({
 }));
 
 jest.mock('next-intl', () => ({
+  ...jest.requireActual('next-intl'),
   useTranslations: () => (key: string) => ({
     'button.submit': 'Submit',
     'button.cancel': 'Cancel'
@@ -20,7 +21,17 @@ jest.mock('@/components/navbar/NavBar', () => {
     return <div data-testid="mock-navbar">{children}</div>;
   };
 });
-
+jest.mock('next/headers', () => ({
+  headers: () => ({
+    headersList: [
+      {
+        name: 'x-forwarded-for',
+        value: '127.0.0.1',
+      },
+    ],
+    get: jest.fn().mockReturnValue('test'),
+  }),
+}));
 describe('ServerButtonWrapper', () => {
   it('should render the component', () => {
     render(<ServerButtonWrapper configIds={[]} />);
