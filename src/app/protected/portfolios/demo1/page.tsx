@@ -6,13 +6,14 @@ export default function Demo1() {
             <h1 className="text-center my-8">Resume</h1>
             <CardWrapper>
                 <div className="max-w-3xl mx-auto px-4 py-8">
-                    <div className="mb-8">
+                    <div className="mb-4 text-center">
                         <h1 className="text-3xl font-bold text-gray-900">Ryan C. McGuiness</h1>
                         <p className="text-gray-600">Software Engineer</p>
                         <p className="text-gray-500">ryanmcguiness123@gmail.com | (732) 675-8146 | <a href="https://rmcguiness.com" className="text-blue-600 hover:underline">rmcguiness.com</a></p>
                     </div>
 
                     <div className="mb-6">
+                        <h2 className="text-2xl font-semibold text-gray-800 border-b pb-2 mb-4">About Me</h2>
                         <p className="text-gray-700">
                             Software Engineer with over 4 years of professional experience developing full-stack software solutions, specializing in
                             front-end technologies. Proven track record of being a reliable teammate and developer, capable of solving problems and
