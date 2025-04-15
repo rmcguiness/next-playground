@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { NavBar } from "@/components/navbar";
 import Head from "next/head";
+import PlausibleProvider from "next-plausible";
 
 
 export const metadata: Metadata = {
@@ -32,10 +33,12 @@ export default async function RootLayout({
         <meta name="bingbot" content="index, follow" />
       </Head>
       <body className="bg-gradient-to-b min-h-screen from-slate-50 to-slate-100">
-        <NavBar />
-        <div className="pt-16">
-          {children}
-        </div>
+        <PlausibleProvider domain="next-playground-swart-alpha.vercel.app">
+          <NavBar />
+          <div className="pt-16">
+            {children}
+          </div>
+        </PlausibleProvider>
       </body>
     </html>
   );
