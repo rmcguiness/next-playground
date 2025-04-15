@@ -5,6 +5,7 @@ import { signup } from "../actions";
 import { PasswordInput } from "../components/password-input";
 import { useState } from "react";
 import ErrorAlert from "../components/error-alert";
+import Error from "next/error";
 
 
 export default function SignupPage() {
@@ -33,8 +34,12 @@ export default function SignupPage() {
                 }
             }
             // Success handling is likely handled by a redirect in your signup action
-        } catch (err: any) {
-            setError(err?.message || 'An unexpected error occurred. Please try again later.');
+        } catch (err: unknown) {
+            if (err instanceof Error) {
+                setError(err.toString());
+            } else {
+                setError('An unexpected error occurred. Please try again later.');
+            }
         }
     }
 
