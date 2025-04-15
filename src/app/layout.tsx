@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { NavBar } from "@/components/navbar";
 import Head from "next/head";
-import PlausibleProvider from "next-plausible";
 
 
 export const metadata: Metadata = {
