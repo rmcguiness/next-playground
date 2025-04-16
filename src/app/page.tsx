@@ -61,7 +61,7 @@ export default async function Home() {
                 </div>
                 <div className="px-6 py-6">
                   <p className="text-green-400 mb-2 font-mono text-sm"># Clone and install dependencies</p>
-                  <code className="text-gray-300 font-mono text-sm">git clone https://github.com/yourusername/next-playground.git</code><br />
+                  <code className="text-gray-300 font-mono text-sm break-all">git clone https://github.com/rmcguiness/next-playground.git</code><br />
                   <code className="text-gray-300 font-mono text-sm">cd next-playground</code><br />
                   <code className="text-gray-300 font-mono text-sm">npm install</code>
 

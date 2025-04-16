@@ -37,13 +37,13 @@ async function NavBar() {
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
-                    Suspense Example
+                    Suspense Loading
                   </a>
-                  <a href="/protected/suspense-vs-layout/loading-layout" className="flex items-center px-4 py-3 text-gray-800 hover:bg-gray-50 transition duration-200">
+                  <a href="/protected/suspense-vs-layout/skeleton-loading" className="flex items-center px-4 py-3 text-gray-800 hover:bg-gray-50 transition duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                     </svg>
-                    Loading Layout Example
+                    Skeleton Loading
                   </a>
                   <a href="/protected/promise-modal" className="flex items-center px-4 py-3 text-gray-800 hover:bg-gray-50 transition duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -34,12 +34,18 @@ export default function SuspensePage() {
             <SlowComponent />
           </Suspense>
         </div>
-        <div className="mt-8">
+        <div className="mt-8 flex flex-wrap gap-4 justify-center">
           <a
-            href="/protected/suspense-vs-layout/loading-layout"
+            href="/protected/suspense-vs-layout/skeleton-loading"
             className="btn-secondary"
           >
             View Skeleton Loading Example
+          </a>
+          <a
+            href="/protected/suspense-vs-layout/suspense"
+            className="btn-primary"
+          >
+            Reload Page
           </a>
         </div>
       </main>

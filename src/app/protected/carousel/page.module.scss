@@ -1,0 +1,53 @@
+.navigationArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 0.5rem;
+  border-radius: 9999px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 1);
+  }
+
+  svg {
+    height: 1.5rem;
+    width: 1.5rem;
+    color: #1f2937; // text-gray-800 equivalent
+  }
+}
+
+.leftArrow {
+  @extend .navigationArrow;
+  left: 1rem;
+}
+
+.rightArrow {
+  @extend .navigationArrow;
+  right: 1rem;
+}
+
+.paginationContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  gap: 0.5rem;
+}
+
+.paginationDot {
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 9999px;
+  transition: all 0.2s;
+
+  &.active {
+    background-color: #16a34a; // bg-green-600 equivalent
+  }
+
+  &.inactive {
+    background-color: #d1d5db; // bg-gray-300 equivalent
+  }
+}

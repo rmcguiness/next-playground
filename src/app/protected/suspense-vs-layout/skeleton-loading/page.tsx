@@ -15,7 +15,7 @@ export default function LoadingLayoutPage() {
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100">
       <main className="layout-container p-8 page-section">
         <div className="page-header">
-          <h1>Loading Layout Demo Page</h1>
+          <h1>Skeleton Loading Demo Page</h1>
           <p className="text-slate-600">This page demonstrates Next.js Loading Layout functionality</p>
         </div>
 
@@ -25,12 +25,18 @@ export default function LoadingLayoutPage() {
           </div>
           <SlowComponent />
         </div>
-        <div className="mt-8">
+        <div className="mt-8 flex flex-wrap gap-4 justify-center">
           <a
             href="/protected/suspense-vs-layout/suspense"
             className="btn-secondary"
           >
             View Suspense Example
+          </a>
+          <a
+            href="/protected/suspense-vs-layout/skeleton-loading"
+            className="btn-primary"
+          >
+            Reload Page
           </a>
         </div>
       </main>
