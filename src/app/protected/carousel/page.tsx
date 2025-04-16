@@ -17,7 +17,6 @@ export default function CarouselPage() {
                     Image Carousel
                 </h1>
             </div>
-
             <div className="max-w-3xl mx-auto">
                 <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
                     <div className="relative">
@@ -31,7 +30,6 @@ export default function CarouselPage() {
                                 priority
                             />
                         </div>
-
                         {/* Navigation arrows */}
                         {currentIndex > 0 && (
                             <button
@@ -44,7 +42,6 @@ export default function CarouselPage() {
                                 </svg>
                             </button>
                         )}
-
                         {currentIndex < items.length - 1 && (
                             <button
                                 onClick={() => setCurrentIndex(currentIndex + 1)}
@@ -57,6 +54,7 @@ export default function CarouselPage() {
                             </button>
                         )}
                     </div>
+                    {/* Pagination indicators */}
                     <div className={styles.paginationContainer}>
                         {items.map((_, index) => (
                             <button
@@ -68,14 +66,10 @@ export default function CarouselPage() {
                             />
                         ))}
                     </div>
-
                     {/* Content */}
                     <div className="p-6">
                         <h2 className="text-2xl font-bold text-gray-900 mb-2">{currentItem.name}</h2>
                         <p className="text-gray-600">{currentItem.description}</p>
-
-                        {/* Pagination indicators */}
-
                     </div>
                 </div>
 
