@@ -23,10 +23,7 @@ export const PasswordInput = () => {
                     type={showPassword ? "text" : "password"}
                     name="password"
                     placeholder="password"
-                    minLength={6}
-                    maxLength={20}
                     // pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
-                    title="Password must be between 6 and 20 characters and contain at least one uppercase letter, one lowercase letter, one number, and one special character"
                     required
                 />
                 <button

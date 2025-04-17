@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
-import { createClient } from "@/utils/supabase/server";
+import { signOut } from "@/actions/auth-actions";
+
 export default function CustomButton({ text, style }) {
   const handleClick = async () => {
     "use server";
@@ -8,9 +9,7 @@ export default function CustomButton({ text, style }) {
     } else if (text === "Login") {
       redirect("/auth/login");
     } else {
-      const supabase = await createClient();
-      await supabase.auth.signOut();
-      redirect("/");
+      await signOut();
     }
   };
 

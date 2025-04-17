@@ -1,13 +1,12 @@
 'use server'
 
 import Link from "next/link";
-import { createClient } from "@/utils/supabase/server";
 import CustomButton from "../buttons/dynamic-nav-button";
 import DropDown from "./components/drop-down";
+import { getUser } from "@/actions/auth-actions";
 
 async function NavBar() {
-  const supabase = await createClient()
-  const { data } = await supabase.auth.getUser()
+  const { data } = await getUser();
   const isLoggedIn = data?.user;
   return (
     <nav className="bg-gradient-to-r from-slate-900 to-slate-800 shadow-lg p-4 fixed w-full z-10">
@@ -30,7 +29,7 @@ async function NavBar() {
               </svg>
             </button>
             <div className="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 origin-top-right">
-              <div className="py-2">
+              <div className="pt-2">
                 {/* Tech Demos Section */}
                 <DropDown label="Tech Demos">
                   <a href="/protected/suspense-vs-layout/suspense" className="flex items-center px-4 py-3 text-gray-800 hover:bg-gray-50 transition duration-200">
@@ -76,8 +75,8 @@ async function NavBar() {
                   </a>
                 </DropDown>
 
-                <div className="border-t border-gray-100 pt-2">
-                  <CustomButton text="Sign Out" style="flex w-full items-center px-4 py-1 text-gray-800 hover:bg-red-50 hover:text-red-500 transition duration-200" />
+                <div className="border-t border-gray-100">
+                  <CustomButton text="Sign Out" style="flex w-full items-center px-4 py-2 text-gray-800 hover:bg-red-50 hover:text-red-500 transition duration-200 rounded-b-lg" />
                 </div>
               </div>
             </div>

@@ -1,11 +1,9 @@
-import { createClient } from "@/utils/supabase/server";
 import CustomButton from "@/components/buttons/dynamic-nav-button";
+import { getUser } from "@/actions/auth-actions";
 
 export default async function Home() {
-  const supabase = await createClient()
-  const { data } = await supabase.auth.getUser()
+  const { data } = await getUser()
   const isLoggedIn = data?.user;
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 z-0">
       <div className="pt-24 pb-16 md:pt-32 md:pb-24">

@@ -1,7 +1,7 @@
 'use client';
 
 import Link from "next/link";
-import { signup } from "../actions";
+import { signup } from "@/actions/auth-actions";
 import { PasswordInput } from "../components/password-input";
 import { useState } from "react";
 import ErrorAlert from "../components/error-alert";
@@ -17,7 +17,6 @@ export default function SignupPage() {
         setIsSubmitting(true);
         try {
             const result = await signup(formData);
-            console.log(result);
             setIsSubmitting(false);
 
             if (result?.error) {
