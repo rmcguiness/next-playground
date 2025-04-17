@@ -10,14 +10,13 @@ import Error from "next/error";
 
 export default function SignupPage() {
     const [error, setError] = useState<string | null>(null);
-    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     async function handleSignup(formData: FormData) {
         setError(null); // Clear previous errors
-        setIsSubmitting(true);
+        setIsLoading(true);
         try {
             const result = await signup(formData);
-            setIsSubmitting(false);
 
             if (result?.error) {
                 // Handle specific error messages from Supabase
@@ -39,6 +38,8 @@ export default function SignupPage() {
             } else {
                 setError('An unexpected error occurred. Please try again later.');
             }
+        } finally {
+            setIsLoading(false);
         }
     }
 
@@ -127,10 +128,10 @@ export default function SignupPage() {
                         <div>
                             <button
                                 type="submit"
-                                disabled={isSubmitting}
+                                disabled={isLoading}
                                 className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
                             >
-                                {isSubmitting ? 'Signing up...' : 'Sign up'}
+                                {isLoading ? 'Signing up...' : 'Sign up'}
                             </button>
                         </div>
                     </form>

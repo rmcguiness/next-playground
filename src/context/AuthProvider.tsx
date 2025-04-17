@@ -1,34 +1,35 @@
 'use client'
 import { Session, User } from '@supabase/supabase-js';
 import { useContext, useState, useEffect, createContext } from 'react';
-import { createClient } from '@/utils/supabase/client';
+import { supabaseClient } from '@/utils/supabase/client';
+import { signOut } from '@/actions/auth-actions';
 
 // create a context for authentication
 const AuthContext = createContext<{ session: Session | null | undefined, user: User | null | undefined, signOut: () => void }>({ session: null, user: null, signOut: () => { } });
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-    const [user, setUser] = useState<User>()
+    const [user, setUser] = useState<User | null>()
     const [session, setSession] = useState<Session | null>();
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const refreshSession = async () => {
-            const { error } = await createClient.auth.refreshSession()
+            const { error } = await supabaseClient.auth.refreshSession()
             if (error) console.error('Error refreshing session:', error)
         }
         const setData = async () => {
-            const { data: { session }, error } = await createClient.auth.getSession();
+            const { data: { user }, error } = await supabaseClient.auth.getUser();
             if (error) throw error;
-            setSession(session)
-            setUser(session?.user)
+            setSession(user?.user_metadata.session)
+            setUser(user)
             setLoading(false);
         };
 
-        const { data: listener } = createClient.auth.onAuthStateChange((_event, session) => {
-            setSession(session);
-            setUser(session?.user)
-            setLoading(false)
-        });
+        // const { data: listener } = createClient.auth.onAuthStateChange((_event, session) => {
+        //     setSession(session);
+        //     setUser(session?.user)
+        //     setLoading(false)
+        // });
 
         setData();
         if (session) {
@@ -44,14 +45,14 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         }
 
         return () => {
-            listener?.subscription.unsubscribe();
+            // listener?.subscription.unsubscribe();
         };
     }, [session]);
 
     const value = {
         session,
         user,
-        signOut: () => createClient.auth.signOut(),
+        signOut: signOut,
     };
 
     // use a provider to pass down the value
