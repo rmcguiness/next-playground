@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
 import { getUser } from "@/actions/auth-actions";
+import { AuthProvider } from "@/context/AuthProvider";
 
 
 export default async function RootLayout({
@@ -13,8 +14,8 @@ export default async function RootLayout({
         redirect('/')
     }
     return (
-        <>
+        <AuthProvider>
             {children}
-        </>
+        </AuthProvider>
     );
 }
