@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         }
         const setData = async () => {
             const { data: { user }, error } = await supabaseClient.auth.getUser();
-            if (error) return console.log('Error getting user:', error);
+            if (error) return console.error('Error getting user:', error);
             setSession(user?.user_metadata.session)
             setUser(user)
             setLoading(false);

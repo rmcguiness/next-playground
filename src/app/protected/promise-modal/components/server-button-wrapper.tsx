@@ -18,7 +18,6 @@ export default async function ServerButtonWrapper({ configIds }: ServerButtonWra
             await sleep(5000); // Wait 5 seconds
             const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
             const data = await response.json();
-            console.log(`Fetched data for config ID ${id}:`, data);
             return data;
         })
     );
