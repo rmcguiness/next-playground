@@ -34,7 +34,10 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-gradient-to-b min-h-screen from-slate-50 to-slate-100">
+      <body
+        className="bg-gradient-to-b min-h-screen from-slate-50 to-slate-100"
+        suppressHydrationWarning
+      >
         <Script
           defer
           data-domain="next-playground-swart-alpha.vercel.app"
