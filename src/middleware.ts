@@ -27,7 +27,7 @@ export async function middleware(request: NextRequest) {
   requestHeaders.set('Content-Security-Policy', contentSecurityPolicyHeaderValue)
 
   // Create initial response with updated headers
-  let response = NextResponse.next({
+  const response = NextResponse.next({
     request: {
       headers: requestHeaders,
     },
