@@ -5,7 +5,7 @@ import CustomButton from "../buttons/dynamic-nav-button";
 import DropDown from "./components/drop-down";
 import { getUser } from "@/actions/auth-actions";
 
-async function NavBar() {
+export default async function NavBar() {
   const { data } = await getUser();
   const isLoggedIn = data?.user;
   return (
@@ -104,5 +104,3 @@ async function NavBar() {
     </nav>
   );
 }
-
-export default NavBar;

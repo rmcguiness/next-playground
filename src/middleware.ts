@@ -4,18 +4,19 @@ import { updateSession } from '@/utils/supabase/middleware'
 export async function middleware(request: NextRequest) {
   // Generate nonce for CSP
   const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
+  const isProd = process.env.NODE_ENV === "production";
   const cspHeader = `
     default-src 'self';
-    script-src 'self' 'nonce-${nonce}' 'strict-dynamic' 'unsafe-inline';
-    style-src 'self' 'nonce-${nonce}';
+    script-src 'self' 'nonce-${nonce}' 'strict-dynamic' plausible.io frfmelwyegduccbcrmck.supabase.co${isProd ? '' : " 'unsafe-eval'"};
+    style-src 'self' ${isProd ? '' : "'unsafe-inline'"};
     img-src 'self' blob: data:;
+    connect-src 'self' plausible.io frfmelwyegduccbcrmck.supabase.co;
     font-src 'self';
     object-src 'none';
     base-uri 'self';
     form-action 'self';
     frame-ancestors 'none';
     upgrade-insecure-requests;
-    require-trusted-types-for 'script';
   `
   // Replace newline characters and spaces
   const contentSecurityPolicyHeaderValue = cspHeader
