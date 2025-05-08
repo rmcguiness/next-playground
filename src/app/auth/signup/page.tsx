@@ -44,7 +44,7 @@ export default function SignupPage() {
     }
 
     return (
-        <div className=" from-slate-50 to-slate-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-md">
                 <div className="flex justify-center">
                     <div className="bg-green-600 text-white p-2 rounded-md">

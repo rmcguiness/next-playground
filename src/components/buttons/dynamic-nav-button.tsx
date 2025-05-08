@@ -1,27 +1,28 @@
 'use client';
 
-import { handleClick } from "@/actions/nav-button-actions";
-
+import { signOut } from "@/actions/auth-actions";
+import { useRouter } from "next/navigation";
 type CustomButtonProps = {
     text: string;
     style?: string;
+    endpt?: string;
 };
 
-export default function CustomButton({ text, style }: CustomButtonProps) {
-    const handleButtonClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
-        e.preventDefault();
-        try {
-            console.log('Button clicked:', text);
-            await handleClick(text);
+export default function CustomButton({ text, style, endpt }: CustomButtonProps) {
+    const router = useRouter();
 
-        } catch (error) {
-            console.error('Error handling button click:', error);
+    const handleClick = () => {
+        if (endpt) {
+            router.push(endpt);
         }
-    };
+        if (text === 'Sign Out') {
+            signOut();
+        }
+    }
 
     return (
         <button
-            onClick={handleButtonClick}
+            onClick={handleClick}
             className={style}
             type="button"
         >
