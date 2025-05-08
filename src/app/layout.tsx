@@ -5,6 +5,7 @@ import { headers } from "next/headers";
 import PlausibleProvider from "next-plausible";
 import Script from "next/script";
 import { NonceProvider } from "@/context/NonceContext";
+import { ThemeProvider } from "next-themes";
 
 export const metadata: Metadata = {
   title: "Next Playground",
@@ -38,24 +39,32 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body
-        className="bg-gradient-to-b min-h-screen from-slate-50 to-slate-100"
+        className="bg-gradient-to-b min-h-screen bg-background text-foreground"
         suppressHydrationWarning
       >
         <NonceProvider nonce={nonce ?? undefined}>
-          <Script
-            async
-            defer
-            data-domain="next-playground-swart-alpha.vercel.app"
-            src="https://plausible.io/js/script.js"
-            nonce={nonce ?? undefined}
-          />
-          <PlausibleProvider domain="next-playground-swart-alpha.vercel.app">
-            <NavBar />
-            <div className="pt-16">
-              {children}
-            </div>
-          </PlausibleProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Script
+              async
+              defer
+              data-domain="next-playground-swart-alpha.vercel.app"
+              src="https://plausible.io/js/script.js"
+              nonce={nonce ?? undefined}
+            />
+            <PlausibleProvider domain="next-playground-swart-alpha.vercel.app">
+              <NavBar />
+              <div className="pt-16">
+                {children}
+              </div>
+            </PlausibleProvider>
+          </ThemeProvider>
         </NonceProvider>
+
       </body>
     </html>
   );
