@@ -1,8 +1,12 @@
 import type { Config } from 'tailwindcss';
 
-const config = {
+const config: Config = {
 	darkMode: ['class'],
-	content: ['./public/**/*.{ts,tsx}', './src/**/*.{ts,tsx}'],
+	content: [
+		'./src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+		'./src/components/**/*.{js,ts,jsx,tsx,mdx}',
+		'./src/app/**/*.{js,ts,jsx,tsx,mdx}',
+	],
 	prefix: '',
 	theme: {
 		container: {
@@ -17,24 +21,14 @@ const config = {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
-				background: 'hsl(var(--background))',
+				background: 'var(--color-background)',
 				foreground: 'hsl(var(--foreground))',
-				yin: {
-					DEFAULT: 'hsl(var(--black))',
-					foreground: 'hsl(var(--white))',
-				},
-				yang: {
-					DEFAULT: 'hsl(var(--white))',
-					foreground: 'hsl(var(--black))',
-				},
-				primary: {
-					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))',
-				},
-				secondary: {
-					DEFAULT: 'hsl(var(--secondary))',
-					foreground: 'hsl(var(--secondary-foreground))',
-				},
+				yin: 'var(--color-yin)',
+				yang: 'var(--color-yang)',
+				primary: 'var(--color-primary)',
+				'primary-dark': 'var(--color-primary-dark)',
+				secondary: 'var(--color-secondary)',
+				'secondary-light': 'var(--color-secondary-light)',
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
 					foreground: 'hsl(var(--destructive-foreground))',
@@ -55,11 +49,13 @@ const config = {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))',
 				},
+				'background-light': 'var(--color-background-light)',
 			},
 			borderRadius: {
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)',
+				lg: 'var(--radius-lg)',
+				md: 'var(--radius-md)',
+				sm: 'var(--radius-sm)',
+				full: 'var(--radius-full)',
 			},
 			keyframes: {
 				'accordion-down': {
@@ -74,6 +70,25 @@ const config = {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
+			},
+			spacing: {
+				xs: 'var(--spacing-xs)',
+				sm: 'var(--spacing-sm)',
+				md: 'var(--spacing-md)',
+				lg: 'var(--spacing-lg)',
+				xl: 'var(--spacing-xl)',
+			},
+			fontSize: {
+				xs: 'var(--font-size-xs)',
+				sm: 'var(--font-size-sm)',
+				base: 'var(--font-size-base)',
+				lg: 'var(--font-size-lg)',
+				xl: 'var(--font-size-xl)',
+			},
+			transitionDuration: {
+				fast: 'var(--transition-fast)',
+				normal: 'var(--transition-normal)',
+				slow: 'var(--transition-slow)',
 			},
 		},
 	},

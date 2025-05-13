@@ -10,7 +10,7 @@ export default async function NavBar() {
   const { data } = await getUser();
   const isLoggedIn = data?.user;
   return (
-    <nav className="bg-gradient-to-r from-slate-900 to-slate-800 shadow-lg p-4 fixed w-full z-10">
+    <nav className="bg-gradient-to-f from-slate-900 to-slate-800 shadow-lg p-4 fixed w-full z-10">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <Link href="/" className="flex items-center space-x-2">
           <div className="bg-green-600 text-white p-2 rounded-md">
@@ -91,15 +91,15 @@ export default async function NavBar() {
                   </DropDown>
 
                   <div className="border-t border-gray-100">
-                    <CustomButton text="Sign Out" style="flex w-full items-center px-4 py-2 text-gray-800 hover:bg-red-50 hover:text-red-500 transition duration-200 rounded-b-lg" />
+                    <CustomButton text="Sign Out" className="flex w-full items-center px-4 py-2 text-gray-800 hover:bg-red-50 hover:text-red-500 transition duration-200 rounded-b-lg" />
                   </div>
                 </div>
               </div>
             </div>
           ) : (
             <div className="flex items-center space-x-3">
-              <CustomButton text="Login" endpt="/auth/login" style="text-yin bg-slate-700 hover:bg-slate-600 px-5 py-2 rounded-full transition duration-300" />
-              <CustomButton text="Sign Up" endpt="/auth/signup" style="text-white bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 px-5 py-2 rounded-full shadow-md transition duration-300" />
+              <CustomButton text="Login" endpt="/auth/login" className="text-yin bg-slate-700 hover:bg-slate-600 px-5 py-2 rounded-full transition duration-300" />
+              <CustomButton text="Sign Up" endpt="/auth/signup" className="text-yin bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 px-5 py-2 rounded-full shadow-md transition duration-300" />
             </div>
           )}
         </div>

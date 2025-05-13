@@ -9,7 +9,7 @@ const buttonVariants = cva(
     {
         variants: {
             variant: {
-                default: "bg-yang text-yin hover:bg-yang/90",
+                default: "bg-yang text-yin border border-yin shadow-md shadow-yang/50 hover:bg-secondary-foreground/50",
                 destructive:
                     "bg-destructive text-destructive-foreground hover:bg-destructive/90",
                 outline:

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import "@/styles/base.css";
 import NavBar from "@/components/navbar/NavBar";
 import { headers } from "next/headers";
 import PlausibleProvider from "next-plausible";
@@ -24,47 +25,60 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
 };
-// Add this separate viewport export
+
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
 };
+
+function Scripts({ nonce }: { nonce: string }) {
+  return (
+    <Script
+      async
+      defer
+      data-domain="next-playground-swart-alpha.vercel.app"
+      src="https://plausible.io/js/script.js"
+      nonce={nonce}
+      strategy="afterInteractive"
+    />
+  );
+}
 
 export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const nonce = (await headers()).get("x-nonce");
+  const nonce = (await headers()).get("x-nonce") ?? "";
+
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
       <body
-        className="bg-gradient-to-b min-h-screen bg-background text-foreground"
+        className="min-h-screen bg-gradient-to-f from-background to-background-light text-foreground"
         suppressHydrationWarning
       >
-        <NonceProvider nonce={nonce ?? undefined}>
+        <NonceProvider nonce={nonce}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
           >
-            <Script
-              async
-              defer
-              data-domain="next-playground-swart-alpha.vercel.app"
-              src="https://plausible.io/js/script.js"
-              nonce={nonce ?? undefined}
-            />
-            <PlausibleProvider domain="next-playground-swart-alpha.vercel.app">
-              <NavBar />
-              <div className="pt-16">
-                {children}
-              </div>
-            </PlausibleProvider>
+            <main>
+              <Scripts nonce={nonce} />
+              <PlausibleProvider domain="next-playground-swart-alpha.vercel.app">
+                <NavBar />
+                <div className="pt-16">
+                  {children}
+                </div>
+              </PlausibleProvider>
+            </main>
           </ThemeProvider>
         </NonceProvider>
-
       </body>
     </html>
   );
