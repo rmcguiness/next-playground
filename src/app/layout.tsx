@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import "./globals.css";
-import "@/styles/base.css";
+import "@/styles/globals.css";
 import NavBar from "@/components/navbar/NavBar";
 import { headers } from "next/headers";
 import PlausibleProvider from "next-plausible";
@@ -31,18 +30,6 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-function Scripts({ nonce }: { nonce: string }) {
-  return (
-    <Script
-      async
-      defer
-      data-domain="next-playground-swart-alpha.vercel.app"
-      src="https://plausible.io/js/script.js"
-      nonce={nonce}
-      strategy="afterInteractive"
-    />
-  );
-}
 
 export default async function RootLayout({
   children,
@@ -55,30 +42,38 @@ export default async function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <Script
+          async
+          defer
+          data-domain="next-playground-swart-alpha.vercel.app"
+          src="https://plausible.io/js/script.js"
+          nonce={nonce}
+          strategy="beforeInteractive"
+        />
       </head>
-      <body
-        className="min-h-screen bg-gradient-to-f from-background to-background-light text-foreground"
-        suppressHydrationWarning
-      >
-        <NonceProvider nonce={nonce}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <main>
-              <Scripts nonce={nonce} />
-              <PlausibleProvider domain="next-playground-swart-alpha.vercel.app">
-                <NavBar />
+      <body className="min-h-screen bg-background">
+
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          nonce={nonce}
+          enableSystem
+          disableTransitionOnChange
+        >
+
+          <PlausibleProvider domain="next-playground-swart-alpha.vercel.app">
+
+            <NonceProvider nonce={nonce}>
+              <NavBar />
+              <main>
                 <div className="pt-16">
                   {children}
                 </div>
-              </PlausibleProvider>
-            </main>
-          </ThemeProvider>
-        </NonceProvider>
+              </main>
+            </NonceProvider>
+          </PlausibleProvider>
+        </ThemeProvider>
+
       </body>
     </html>
   );
