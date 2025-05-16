@@ -175,13 +175,13 @@
 	}
 
 	/* Menu Items */
-	.menu-item {
+	/* .menu-item {
 		@apply flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 transition duration-200 rounded-md;
 	}
 
 	.menu-item-active {
 		@apply flex items-center px-4 py-3 text-green-700 bg-green-50 hover:bg-green-100 transition duration-200 rounded-md;
-	} */
+	}  */
 }
 
 /* Utility Classes */
