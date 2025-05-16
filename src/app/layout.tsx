@@ -3,8 +3,9 @@ import "./globals.css";
 import NavBar from "@/components/navbar/NavBar";
 import { headers } from "next/headers";
 import PlausibleProvider from "next-plausible";
-import Script from "next/script";
 import { NonceProvider } from "@/context/NonceContext";
+import { ThemeProvider } from "next-themes";
+import Scripts from "./_scripts/scritps";
 
 export const metadata: Metadata = {
   title: "Next Playground",
@@ -23,40 +24,50 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
 };
-// Add this separate viewport export
+
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
 };
+
 
 export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const nonce = (await headers()).get("x-nonce");
+  const nonce = (await headers()).get("x-nonce") ?? "";
+
   return (
-    <html lang="en">
-      <body
-        className="bg-gradient-to-b min-h-screen from-slate-50 to-slate-100"
-        suppressHydrationWarning
-      >
-        <NonceProvider nonce={nonce ?? undefined}>
-          <Script
-            async
-            defer
-            data-domain="next-playground-swart-alpha.vercel.app"
-            src="https://plausible.io/js/script.js"
-            nonce={nonce ?? undefined}
-          />
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <meta charSet="utf-8" />
+        <Scripts nonce={nonce} />
+      </head>
+      <body className="min-h-screen bg-background">
+
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          nonce={nonce}
+          enableSystem={true}
+          disableTransitionOnChange={true}
+        >
+
           <PlausibleProvider domain="next-playground-swart-alpha.vercel.app">
-            <NavBar />
-            <div className="pt-16">
-              {children}
-            </div>
+
+            <NonceProvider nonce={nonce}>
+              <NavBar />
+              <main>
+                <div className="pt-16">
+                  {children}
+                </div>
+              </main>
+            </NonceProvider>
           </PlausibleProvider>
-        </NonceProvider>
+        </ThemeProvider>
+
       </body>
-    </html>
+    </html >
   );
 }

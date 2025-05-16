@@ -5,7 +5,7 @@ export default async function Home() {
   const { data } = await getUser()
   const isLoggedIn = data?.user;
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 z-0">
+    <div className="min-h-screen bg-linear-to-b from-slate-50 to-slate-100 z-0">
       <div className="pt-24 pb-16 md:pt-32 md:pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
@@ -21,8 +21,8 @@ export default async function Home() {
 
             {!isLoggedIn && (
               <div className="mt-8 flex justify-center space-x-4">
-                <CustomButton text="Login" style="px-6 py-3 text-base font-medium rounded-md text-white bg-gradient-to-r from-slate-800 to-slate-700 hover:from-slate-700 hover:to-slate-600 shadow-md transition duration-300" />
-                <CustomButton text="Sign Up" style="px-6 py-3 text-base font-medium rounded-md text-white bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 shadow-md transition duration-300" />
+                <CustomButton text="Login" className="px-6 py-3 text-base font-medium rounded-md text-white bg-linear-to-r from-slate-800 to-slate-700 hover:from-slate-700 hover:to-slate-600 shadow-md transition duration-300" />
+                <CustomButton text="Sign Up" className="px-6 py-3 text-base font-medium rounded-md text-white bg-linear-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 shadow-md transition duration-300" />
               </div>
             )}
           </div>
@@ -91,11 +91,11 @@ export default async function Home() {
               </div>
             </div>
 
-            <div className="mt-10 rounded-xl bg-gradient-to-r from-slate-50 to-white p-6 border border-gray-200 shadow-sm">
+            <div className="mt-10 rounded-xl bg-linear-to-r from-slate-50 to-white p-6 border border-gray-200 shadow-sm">
               <h3 className="text-lg font-bold text-gray-900 mb-4">Subjects Include</h3>
               <div className="grid gap-3 md:grid-cols-2">
                 <div className="flex items-start">
-                  <div className="flex-shrink-0">
+                  <div className="shrink-0">
                     <svg className="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
@@ -103,7 +103,7 @@ export default async function Home() {
                   <p className="ml-3 text-base text-gray-700">Suspense vs Loading Layout patterns</p>
                 </div>
                 <div className="flex items-start">
-                  <div className="flex-shrink-0">
+                  <div className="shrink-0">
                     <svg className="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
@@ -111,7 +111,7 @@ export default async function Home() {
                   <p className="ml-3 text-base text-gray-700">Promise-based Modal implementations</p>
                 </div>
                 <div className="flex items-start">
-                  <div className="flex-shrink-0">
+                  <div className="shrink-0">
                     <svg className="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
@@ -119,7 +119,7 @@ export default async function Home() {
                   <p className="ml-3 text-base text-gray-700">Dynamic Navbar with Supabase Auth</p>
                 </div>
                 <div className="flex items-start">
-                  <div className="flex-shrink-0">
+                  <div className="shrink-0">
                     <svg className="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>

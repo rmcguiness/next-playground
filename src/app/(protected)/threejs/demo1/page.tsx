@@ -10,6 +10,8 @@ export default function ThreeJsTileDemo() {
     useEffect(() => {
         if (!mountRef.current) return;
 
+        const curr = mountRef.current;
+
         // Initialize scene, camera, and renderer
         const scene = new THREE.Scene();
         scene.background = new THREE.Color(0x111111);
@@ -27,7 +29,7 @@ export default function ThreeJsTileDemo() {
         renderer.shadowMap.enabled = true;
 
         // Mount renderer to the div
-        mountRef.current.appendChild(renderer.domElement);
+        curr.appendChild(renderer.domElement);
 
         // Add OrbitControls
         const controls = new OrbitControls(camera, renderer.domElement);
@@ -227,7 +229,7 @@ export default function ThreeJsTileDemo() {
         // Cleanup function
         return () => {
             window.removeEventListener('resize', handleResize);
-            mountRef.current?.removeChild(renderer.domElement);
+            curr.removeChild(renderer.domElement);
 
             // Dispose of resources
             tileGeometry.dispose();

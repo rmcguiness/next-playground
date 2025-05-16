@@ -61,7 +61,7 @@ export default function NotFound() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 text-white flex flex-col items-center justify-center px-4 overflow-hidden">
+    <div className="min-h-screen bg-linear-to-b from-slate-900 to-slate-800 text-white flex flex-col items-center justify-center px-4 overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute w-full h-full">
@@ -141,7 +141,7 @@ export default function NotFound() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
             href="/"
-            className="relative inline-flex group items-center justify-center px-6 py-3 rounded-full bg-gradient-to-r from-green-600 to-green-500 text-white font-medium overflow-hidden transition-all duration-300 hover:scale-105"
+            className="relative inline-flex group items-center justify-center px-6 py-3 rounded-full bg-linear-to-r from-green-600 to-green-500 text-white font-medium overflow-hidden transition-all duration-300 hover:scale-105"
           >
             <span className="relative z-10">Return to Home</span>
             <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
