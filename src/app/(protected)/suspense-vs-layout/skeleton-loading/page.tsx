@@ -12,7 +12,7 @@ async function SlowComponent() {
 
 export default function LoadingLayoutPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100">
+    <div className="min-h-screen bg-linear-to-b from-slate-50 to-slate-100">
       <main className="layout-container p-8 page-section">
         <div className="page-header">
           <h1>Skeleton Loading Demo Page</h1>

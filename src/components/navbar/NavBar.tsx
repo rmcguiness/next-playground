@@ -99,7 +99,7 @@ export default async function NavBar() {
           ) : (
             <div className="flex items-center space-x-3">
               <CustomButton text="Login" endpt="/auth/login" className="text-yin bg-slate-700 hover:bg-slate-600 px-5 py-2 rounded-full transition duration-300" />
-              <CustomButton text="Sign Up" endpt="/auth/signup" className="text-yin bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 px-5 py-2 rounded-full shadow-md transition duration-300" />
+              <CustomButton text="Sign Up" endpt="/auth/signup" className="text-yin bg-linear-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 px-5 py-2 rounded-full shadow-md transition duration-300" />
             </div>
           )}
         </div>
