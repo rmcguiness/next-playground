@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import styles from "./page.module.scss";
+import styles from "./page.module.css";
 import { items } from "./items";
 // Sample data for carousel items
 

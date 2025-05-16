@@ -1,4 +1,7 @@
-@import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind theme;
 
 @layer theme {
 	:root {
@@ -65,9 +68,9 @@
 	}
 
 	.dark {
+		/* You can add dark mode variables here */
 	}
 
-	/* Base Styles */
 	* {
 		@apply border-border;
 	}
@@ -96,9 +99,11 @@
 	.pt-16 {
 		padding-top: calc(var(--spacing) * 8);
 	}
+
 	.h-5 {
 		height: calc(var(--spacing) * 5);
 	}
+
 	.w-5 {
 		width: calc(var(--spacing) * 5);
 	}
@@ -114,17 +119,4 @@
 	.text-pretty {
 		text-wrap: pretty;
 	}
-}
-
-@layer base {
-	html {
-		background-color: red;
-	}
-
-	body {
-		@apply bg-background text-foreground antialiased;
-	}
-}
-
-@layer components {
 }

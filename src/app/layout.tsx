@@ -3,9 +3,9 @@ import "@/styles/globals.css";
 import NavBar from "@/components/navbar/NavBar";
 import { headers } from "next/headers";
 import PlausibleProvider from "next-plausible";
-import Script from "next/script";
 import { NonceProvider } from "@/context/NonceContext";
 import { ThemeProvider } from "next-themes";
+import Scripts from "./_scripts/scritps";
 
 export const metadata: Metadata = {
   title: "Next Playground",
@@ -42,14 +42,7 @@ export default async function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
-        <Script
-          async
-          defer
-          data-domain="next-playground-swart-alpha.vercel.app"
-          src="https://plausible.io/js/script.js"
-          nonce={nonce}
-          strategy="beforeInteractive"
-        />
+        <Scripts nonce={nonce} />
       </head>
       <body className="min-h-screen bg-background">
 
@@ -57,8 +50,8 @@ export default async function RootLayout({
           attribute="class"
           defaultTheme="system"
           nonce={nonce}
-          enableSystem
-          disableTransitionOnChange
+          enableSystem={true}
+          disableTransitionOnChange={true}
         >
 
           <PlausibleProvider domain="next-playground-swart-alpha.vercel.app">
@@ -75,6 +68,6 @@ export default async function RootLayout({
         </ThemeProvider>
 
       </body>
-    </html>
+    </html >
   );
 }
