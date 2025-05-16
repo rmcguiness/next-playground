@@ -7,13 +7,13 @@ export async function middleware(request: NextRequest) {
 	const isProd = process.env.NODE_ENV === 'production';
 	const cspHeader = `
     default-src 'self';
-    script-src 'self' 'nonce-${nonce}' 'strict-dynamic' plausible.io frfmelwyegduccbcrmck.supabase.co${
+    script-src 'self' 'nonce-${nonce}' 'strict-dynamic' plausible.io frfmelwyegduccbcrmck.supabase.co vercel.live${
 		isProd ? '' : " 'unsafe-eval'"
 	};
-    script-src-elem 'self' 'nonce-${nonce}' plausible.io frfmelwyegduccbcrmck.supabase.co;
+    script-src-elem 'self' 'nonce-${nonce}' plausible.io frfmelwyegduccbcrmck.supabase.co vercel.live;
     style-src 'self' 'unsafe-inline';
     img-src 'self' blob: data:;
-    connect-src 'self' plausible.io frfmelwyegduccbcrmck.supabase.co;
+    connect-src 'self' plausible.io frfmelwyegduccbcrmck.supabase.co vercel.live;
     font-src 'self';
     object-src 'none';
     base-uri 'self';
