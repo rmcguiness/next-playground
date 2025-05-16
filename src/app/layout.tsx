@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { ThemeProvider } from "@/context/ThemeProvider";
 import NavBar from "@/components/navbar/NavBar";
 import { headers } from "next/headers";
 import PlausibleProvider from "next-plausible";
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
 };
-// Add this separate viewport export
+
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
@@ -36,26 +37,16 @@ export default async function RootLayout({
 }>) {
   const nonce = (await headers()).get("x-nonce");
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className="bg-gradient-to-b min-h-screen from-slate-50 to-slate-100"
-        suppressHydrationWarning
+        className="font-sans"
       >
-        <NonceProvider nonce={nonce ?? undefined}>
-          <Script
-            async
-            defer
-            data-domain="next-playground-swart-alpha.vercel.app"
-            src="https://plausible.io/js/script.js"
-            nonce={nonce ?? undefined}
-          />
-          <PlausibleProvider domain="next-playground-swart-alpha.vercel.app">
-            <NavBar />
-            <div className="pt-16">
-              {children}
-            </div>
-          </PlausibleProvider>
-        </NonceProvider>
+        <ThemeProvider>
+          <NavBar />
+          <div className="pt-16">
+            {children}
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
