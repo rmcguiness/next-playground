@@ -1,0 +1,243 @@
+@import 'tailwindcss';
+
+:root {
+	--background: oklch(1 0 0);
+	--foreground: oklch(0.145 0 0);
+}
+
+.dark {
+	--background: oklch(0.145 0 0);
+	--foreground: oklch(0.985 0 0);
+}
+
+/* 3. Map variables using @theme inline */
+@theme inline {
+	/* Map key variables to Tailwind classes */
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	/* ... other mappings for secondary, muted, accent, destructive, etc. ... */
+}
+
+/* Typography */
+@layer base {
+	* {
+	}
+	body {
+		@apply bg-background text-foreground;
+		background-color: red;
+		/* Improve font smoothing */
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+	/* h1 {
+		@apply text-4xl font-extrabold tracking-tight;
+	}
+
+	h2 {
+		@apply text-3xl font-bold tracking-tight;
+	}
+
+	h3 {
+		@apply text-2xl font-bold;
+	}
+
+	h4 {
+		@apply text-xl font-bold;
+	}
+
+	h5 {
+		@apply text-lg font-semibold;
+	}
+
+	p {
+		@apply text-base text-slate-700;
+	}
+
+	a {
+		@apply text-green-600 hover:text-green-500 transition-colors duration-200;
+	} */
+}
+
+/* Common Components */
+@layer components {
+	/* Buttons */
+	/* .btn {
+		@apply inline-flex items-center justify-center px-4 py-2 rounded-md font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+	}
+
+	.btn-primary {
+		@apply btn bg-gradient-to-r from-green-600 to-green-500 text-white hover:from-green-500 hover:to-green-400 hover:text-slate-800 shadow-sm focus:ring-green-500;
+	}
+
+	.btn-secondary {
+		@apply btn bg-slate-800 text-white hover:bg-slate-700 focus:ring-slate-500;
+	}
+
+	.btn-outline {
+		@apply btn border border-slate-300 text-slate-700 bg-white hover:bg-slate-50 focus:ring-slate-500;
+	}
+
+	.btn-danger {
+		@apply btn bg-red-600 text-white hover:bg-red-500 focus:ring-red-500;
+	}
+
+	.btn-sm {
+		@apply px-3 py-1 text-sm rounded;
+	}
+
+	.btn-lg {
+		@apply px-6 py-3 text-lg rounded-lg;
+	}
+
+	.btn-rounded {
+		@apply rounded-full;
+	} */
+
+	/* Cards */
+	/* .card {
+		@apply bg-white rounded-lg shadow-md overflow-hidden;
+	}
+
+	.card-elevated {
+		@apply bg-white rounded-lg shadow-xl overflow-hidden;
+	}
+
+	.card-header {
+		@apply px-6 py-4 border-b border-slate-200;
+	}
+
+	.card-body {
+		@apply p-6;
+	}
+
+	.card-footer {
+		@apply px-6 py-4 border-t border-slate-200;
+	} */
+
+	/* Inputs */
+	/* .input {
+		@apply w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500;
+	}
+
+	.input-sm {
+		@apply px-2 py-1 text-sm;
+	}
+
+	.input-lg {
+		@apply px-4 py-3 text-lg;
+	} */
+
+	/* Labels */
+	/* .label {
+		@apply block text-sm font-medium text-slate-700 mb-1;
+	} */
+
+	/* Badges */
+	/* .badge {
+		@apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+	}
+
+	.badge-green {
+		@apply badge bg-green-100 text-green-800;
+	}
+
+	.badge-red {
+		@apply badge bg-red-100 text-red-800;
+	}
+
+	.badge-blue {
+		@apply badge bg-blue-100 text-blue-800;
+	}
+
+	.badge-gray {
+		@apply badge bg-slate-100 text-slate-800;
+	} */
+
+	/* Alerts */
+	/* .alert {
+		@apply p-4 rounded-md mb-4;
+	}
+
+	.alert-info {
+		@apply alert bg-blue-50 text-blue-700 border-l-4 border-blue-500;
+	}
+
+	.alert-success {
+		@apply alert bg-green-50 text-green-700 border-l-4 border-green-500;
+	}
+
+	.alert-warning {
+		@apply alert bg-yellow-50 text-yellow-700 border-l-4 border-yellow-500;
+	}
+
+	.alert-error {
+		@apply alert bg-red-50 text-red-700 border-l-4 border-red-500;
+	}
+
+	/* Menu Items */
+	/* .menu-item {
+		@apply flex items-center px-4 py-3 text-slate-700 hover:bg-slate-50 transition duration-200 rounded-md;
+	}
+
+	.menu-item-active {
+		@apply flex items-center px-4 py-3 text-green-700 bg-green-50 hover:bg-green-100 transition duration-200 rounded-md;
+	}  */
+}
+
+/* Utility Classes */
+@layer utilities {
+	/* Gradients */
+	/* .bg-gradient-primary {
+		@apply bg-gradient-to-r from-green-600 to-green-500;
+	}
+
+	.bg-gradient-secondary {
+		@apply bg-gradient-to-r from-slate-800 to-slate-700;
+	}
+
+	.bg-gradient-blue {
+		@apply bg-gradient-to-r from-blue-600 to-blue-500;
+	} */
+
+	/* Animations */
+	/* .animate-fade-in {
+		animation: fadeIn 0.5s ease-in-out;
+	}
+
+	.animate-slide-up {
+		animation: slideUp 0.5s ease-out;
+	}
+
+	.animate-pulse-slow {
+		animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+	}
+
+	.animate-spin-slow {
+		animation: spin 3s linear infinite;
+	}
+
+	.animate-bounce-slow {
+		animation: bounce 2s infinite;
+	} */
+
+	/* Common Layout Patterns */
+	/* .layout-container {
+		@apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+	}
+
+	.page-section {
+		@apply py-12 sm:py-16;
+	}
+
+	.page-header {
+		@apply mb-12 text-center;
+	}
+
+	.divider {
+		@apply h-px w-full bg-slate-200 my-8;
+	}
+
+	.form-group {
+		@apply mb-4;
+	} */
+}

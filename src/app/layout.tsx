@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import "@/styles/globals.css";
+import "./globals.css";
 import NavBar from "@/components/navbar/NavBar";
 import { headers } from "next/headers";
 import PlausibleProvider from "next-plausible";
