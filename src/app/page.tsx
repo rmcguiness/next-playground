@@ -5,7 +5,7 @@ export default async function Home() {
   const { data } = await getUser()
   const isLoggedIn = data?.user;
   return (
-    <div className="min-h-screen bg-linear-to-b from-slate-50 to-slate-100 z-0">
+    <div>
       <div className="pt-24 pb-16 md:pt-32 md:pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">

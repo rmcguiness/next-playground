@@ -18,7 +18,7 @@ export default function StickyComponentsPage() {
     }, [])
 
     return (
-        <div className="container mx-auto px-4 py-8">
+        <div className=" mx-auto px-4 py-8">
             <h1 className="text-3xl font-bold mb-8">Sticky Components Demo</h1>
             <div className="flex flex-col md:flex-row gap-8">
                 {/* Left Column - Takes up less than half the page and sticks when scrolling */}

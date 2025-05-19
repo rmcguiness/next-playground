@@ -10,7 +10,7 @@ export default async function NavBar() {
   const { data } = await getUser();
   const isLoggedIn = data?.user;
   return (
-    <nav className="bg-gradient-to-f from-slate-900 to-slate-800 shadow-lg p-4 fixed w-full z-10">
+    <nav className="bg-background shadow-lg p-4 fixed w-full z-10">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <Link href="/" className="flex items-center space-x-2">
           <div className="bg-green-600 text-white p-2 rounded-md">
@@ -18,7 +18,7 @@ export default async function NavBar() {
               <path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
             </svg>
           </div>
-          <span className="text-white text-xl font-bold tracking-tight hidden md:inline">Next<span className="text-green-400">Playground</span></span>
+          <span className="text- text-xl font-bold tracking-tight hidden md:inline">Next<span className="text-green-400">Playground</span></span>
         </Link>
         <div className="flex items-center space-x-3">
           <ThemeSwitcher />
@@ -78,6 +78,14 @@ export default async function NavBar() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                       </svg>
                       Demo 1
+                    </a>
+                  </DropDown>
+                  <DropDown label="Styles Showcase">
+                    <a href="/styles-showcase" className="flex items-center px-4 py-3 text-gray-800 hover:bg-gray-50 transition duration-200">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                      Styles Showcase
                     </a>
                   </DropDown>
                   {/* Portfolios Section */}

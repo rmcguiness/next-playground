@@ -1,10 +1,12 @@
 import Script from "next/script";
 
+// NOTE: Plausible is not used in this project anymore.
+//TODO: Use this file as a reference for adding scripts to the project.
 function Scripts({ nonce }: { nonce: string }) {
     return (
         <>
             {/* Analytics Script */}
-            <Script
+            {/* <Script
                 id="analytics"
                 strategy="afterInteractive"
                 nonce={nonce}
@@ -16,7 +18,7 @@ function Scripts({ nonce }: { nonce: string }) {
                     window.plausible.q.push(['trackPageview']);
           `
                 }}
-            />
+            /> */}
         </>
     )
 }
