@@ -1,7 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	content: [
-		'./src/pages/**/*.{js,ts,jsx,tsx,mdx}',
 		'./src/components/**/*.{js,ts,jsx,tsx,mdx}',
 		'./src/app/**/*.{js,ts,jsx,tsx,mdx}',
 	],
@@ -9,8 +8,7 @@ module.exports = {
 		extend: {
 			colors: {
 				background: 'var(--color-background)',
-				'background-light': 'var(--color-background-light)',
-				foreground: 'var(--color-yin)',
+				foreground: 'var(--color-foreground)',
 				primary: {
 					50: '#f0f9ff',
 					100: '#e0f2fe',
@@ -24,8 +22,6 @@ module.exports = {
 					900: '#0c4a6e',
 					950: '#082f49',
 				},
-				'primary-light': 'var(--color-primary-light)',
-				'primary-dark': 'var(--color-primary-dark)',
 				secondary: {
 					50: '#f8fafc',
 					100: '#f1f5f9',
@@ -39,8 +35,6 @@ module.exports = {
 					900: '#0f172a',
 					950: '#020617',
 				},
-				'secondary-light': 'var(--color-secondary-light)',
-				'secondary-dark': 'var(--color-secondary-dark)',
 				accent: {
 					50: '#fdf4ff',
 					100: '#fae8ff',
@@ -83,7 +77,6 @@ module.exports = {
 				md: '0.375rem',
 				lg: '0.5rem',
 				xl: '0.75rem',
-				'2xl': '1rem',
 				full: '9999px',
 			},
 			transitionDuration: {
