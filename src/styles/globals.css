@@ -1,0 +1,74 @@
+@import 'tailwindcss';
+/* @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *)); */
+
+:root {
+	--foreground: #000000;
+	--background: #ffffff;
+	/* Color System */
+	--primary: rgb(29, 52, 114); /* blue-700 */
+	--secondary: rgb(10, 147, 97); /* gray-500 */
+	--paragraph: rgb(69, 72, 79); /* gray-500 */
+
+	/* Typography */
+	--font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+		sans-serif;
+	--font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+	/* Spacing System */
+	--spacing-1: 0.25rem;
+	--spacing-2: 0.5rem;
+	--spacing-3: 0.75rem;
+	--spacing-4: 1rem;
+	--spacing-6: 1.5rem;
+	--spacing-8: 2rem;
+
+	/* Border Radius */
+	--radius-sm: 0.125rem;
+	--radius-md: 0.375rem;
+	--radius-lg: 0.5rem;
+	--radius-xl: 0.75rem;
+	--radius-2xl: 1rem;
+	--radius-full: 9999px;
+
+	/* Shadows */
+	--shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+	--shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+	--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+		0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.dark {
+	--background: #000000;
+	--foreground: #ffffff;
+	/* Color System */
+	--primary: rgb(19, 60, 173); /* blue-700 */
+	--secondary: rgb(33, 191, 133); /* gray-500 */
+	--paragraph: rgb(107, 114, 128); /* gray-500 */
+}
+
+/* 3. Map variables using @theme inline */
+@theme inline {
+	/* Map key variables to Tailwind classes */
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--color-primary: var(--primary);
+	--color-secondary: var(--secondary);
+	--color-paragraph: var(--paragraph);
+	--color-muted: var(--muted);
+	--color-accent: var(--accent);
+	--color-destructive: var(--destructive);
+	/* ... other mappings for secondary, muted, accent, destructive, etc. ... */
+}
+
+/* Typography */
+@layer base {
+	body {
+		/* Improve font smoothing */
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		min-height: 100vh;
+		position: relative;
+		overflow-x: hidden;
+		font-family: var(--font-sans);
+	}
+}

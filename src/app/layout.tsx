@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import "./globals.css";
+import "@/styles/globals.css";
 import NavBar from "@/components/navbar/NavBar";
 import { headers } from "next/headers";
-import PlausibleProvider from "next-plausible";
 import { NonceProvider } from "@/context/NonceContext";
 import { ThemeProvider } from "next-themes";
-import Scripts from "./_scripts/scritps";
+// import PlausibleProvider from "next-plausible";
+// import Scripts from "./_scripts/scritps";
 
 export const metadata: Metadata = {
   title: "Next Playground",
@@ -40,32 +40,26 @@ export default async function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <meta charSet="utf-8" />
-        <Scripts nonce={nonce} />
-      </head>
-      <body className="min-h-screen bg-background">
+      {/* <Scripts nonce={nonce} /> */}
+      <body>
+        <NonceProvider nonce={nonce}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            nonce={nonce}
+            enableSystem={true}
+            disableTransitionOnChange={true}
+          >
 
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          nonce={nonce}
-          enableSystem={true}
-          disableTransitionOnChange={true}
-        >
+            <NavBar />
+            <main className="pt-16">
+              <div>
+                {children}
+              </div>
+            </main>
 
-          <PlausibleProvider domain="next-playground-swart-alpha.vercel.app">
-
-            <NonceProvider nonce={nonce}>
-              <NavBar />
-              <main>
-                <div className="pt-16">
-                  {children}
-                </div>
-              </main>
-            </NonceProvider>
-          </PlausibleProvider>
-        </ThemeProvider>
+          </ThemeProvider>
+        </NonceProvider>
 
       </body>
     </html >
