@@ -10,10 +10,10 @@ export default async function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900">
-              <span className="inline-block text-green-600">Next</span>
-              <span className="ml-2 inline-block">Playground</span>
+              <span className="inline-block text-foreground">Next</span>
+              <span className="ml-2 inline-block text-secondary">Playground</span>
             </h1>
-            <p className="mt-6 max-w-2xl mx-auto text-xl text-gray-600">
+            <p className="mt-6 max-w-2xl mx-auto text-xl text-paragraph">
               {isLoggedIn
                 ? "Explore cutting-edge Next.js features with interactive examples"
                 : "Sign in to explore cutting-edge Next.js features with interactive examples"}

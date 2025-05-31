@@ -1,29 +1,13 @@
 @import 'tailwindcss';
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+/* @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *)); */
 
 :root {
 	--foreground: #000000;
 	--background: #ffffff;
 	/* Color System */
-	--color-primary: 29 78 216; /* blue-700 */
-	--color-primary-light: 59 130 246; /* blue-500 */
-	--color-primary-dark: 30 58 138; /* blue-800 */
-
-	--color-secondary: 107 114 128; /* gray-500 */
-	--color-secondary-light: 156 163 175; /* gray-400 */
-	--color-secondary-dark: 55 65 81; /* gray-700 */
-
-	--color-accent: 217 70 239; /* fuchsia-500 */
-	--color-accent-light: 232 121 249; /* fuchsia-400 */
-	--color-accent-dark: 192 38 211; /* fuchsia-600 */
-
-	--color-destructive: 220 38 38; /* red-600 */
-	--color-destructive-light: 239 68 68; /* red-500 */
-	--color-destructive-dark: 185 28 28; /* red-700 */
-
-	--color-success: 22 163 74; /* green-600 */
-	--color-warning: 234 179 8; /* yellow-500 */
-	--color-info: 6 182 212; /* cyan-500 */
+	--primary: rgb(29, 52, 114); /* blue-700 */
+	--secondary: rgb(10, 147, 97); /* gray-500 */
+	--paragraph: rgb(69, 72, 79); /* gray-500 */
 
 	/* Typography */
 	--font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
@@ -56,70 +40,10 @@
 .dark {
 	--background: #000000;
 	--foreground: #ffffff;
-
-	/* Primary colors */
-	--primary-foreground: 255 255 255;
-	--primary-hover: 5 150 105;
-	--primary-active: 4 120 87;
-
-	/* Secondary colors */
-	--secondary-foreground: 248 250 252;
-	--secondary-hover: 51 65 85;
-	--secondary-active: 71 85 105;
-
-	/* Accent colors */
-	--accent: 99 102 241;
-	--accent-foreground: 255 255 255;
-	--accent-hover: 79 70 229;
-	--accent-active: 67 56 202;
-
-	/* Muted variants */
-	--muted: 30 41 59;
-	--muted-foreground: 148 163 184;
-
-	/* Destructive actions */
-	--destructive: 239 68 68;
-	--destructive-foreground: 255 255 255;
-	--destructive-hover: 220 38 38;
-	--destructive-active: 185 28 28;
-
-	/* Success states */
-	--success: 34 197 94;
-	--success-foreground: 255 255 255;
-
-	/* Warning states */
-	--warning: 234 179 8;
-	--warning-foreground: 15 23 42;
-
-	/* Info states */
-	--info: 59 130 246;
-	--info-foreground: 255 255 255;
-
-	/* Border utilities */
-	--border: 51 65 85;
-	--border-hover: 71 85 105;
-	--border-focus: var(--primary);
-
-	/* Ring/Focus utilities */
-	--ring: 16 185 129;
-	--ring-offset: 15 23 42;
-
-	/* Card utilities */
-	--card: 30 41 59;
-	--card-foreground: 248 250 252;
-	--card-hover: 51 65 85;
-
-	/* Input utilities */
-	--input: 30 41 59;
-	--input-hover: 51 65 85;
-	--input-focus: 15 23 42;
-
-	/* Shadows - darker for dark mode */
-	--shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.4);
-	--shadow: 0 1px 3px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.4);
-	--shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
-	--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4),
-		0 4px 6px -4px rgb(0 0 0 / 0.4);
+	/* Color System */
+	--primary: rgb(19, 60, 173); /* blue-700 */
+	--secondary: rgb(33, 191, 133); /* gray-500 */
+	--paragraph: rgb(107, 114, 128); /* gray-500 */
 }
 
 /* 3. Map variables using @theme inline */
@@ -129,6 +53,7 @@
 	--color-foreground: var(--foreground);
 	--color-primary: var(--primary);
 	--color-secondary: var(--secondary);
+	--color-paragraph: var(--paragraph);
 	--color-muted: var(--muted);
 	--color-accent: var(--accent);
 	--color-destructive: var(--destructive);
