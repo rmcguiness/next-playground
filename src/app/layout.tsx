@@ -2,10 +2,10 @@ import type { Metadata, Viewport } from "next";
 import "@/styles/globals.css";
 import NavBar from "@/components/navbar/NavBar";
 import { headers } from "next/headers";
-import PlausibleProvider from "next-plausible";
 import { NonceProvider } from "@/context/NonceContext";
 import { ThemeProvider } from "next-themes";
-import Scripts from "./_scripts/scritps";
+// import PlausibleProvider from "next-plausible";
+// import Scripts from "./_scripts/scritps";
 
 export const metadata: Metadata = {
   title: "Next Playground",

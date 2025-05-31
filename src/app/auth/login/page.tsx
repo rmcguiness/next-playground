@@ -4,19 +4,19 @@ import { PasswordInput } from "../components/password-input";
 
 export default function LoginPage() {
     return (
-        <div className="min-h-screen bg-linear-to-b from-slate-50 to-slate-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div className="bg-linear-to-b mt-12 sm:mx-6 lg:mx-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-md">
                 <div className="flex justify-center">
-                    <div className="bg-green-600 text-white p-2 rounded-md">
+                    <div className="bg-green-600 text-foreground p-2 rounded-md">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
                             <path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                         </svg>
                     </div>
                 </div>
-                <h1 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+                <h1 className="mt-6 text-center text-3xl font-extrabold text-foreground">
                     Sign in to your account
                 </h1>
-                <p className="mt-2 text-center text-sm text-gray-600">
+                <p className="mt-2 text-center text-sm text-paragraph">
                     Or{' '}
                     <Link href="/auth/signup" className="font-medium text-green-600 hover:text-green-500">
                         create a new account
