@@ -1,8 +1,9 @@
-import Script from "next/script";
+// import Script from "next/script";
 
 // NOTE: Plausible is not used in this project anymore.
 //TODO: Use this file as a reference for adding scripts to the project.
-function Scripts({ nonce }: { nonce: string }) {
+// nonce }: { nonce: string }?
+function Scripts() {
     return (
         <>
             {/* Analytics Script */}

@@ -8,12 +8,12 @@ import { useRouter } from "next/navigation";
 type CustomButtonProps = {
     text: string;
     endpt?: string;
-    variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link" | "glow";
-    size?: "default" | "sm" | "lg" | "icon" | null | undefined;
+    variant?: "primary" | "secondary" | "accent" | "destructive" | "outline" | null | undefined;
+    size?: "default" | "sm" | "lg" | null | undefined;
     className?: string;
 };
 
-export default function CustomButton({ text, className, endpt, variant = "default", size = 'sm' }: CustomButtonProps) {
+export default function CustomButton({ text, className, endpt, variant = "primary", size = 'sm' }: CustomButtonProps) {
     const router = useRouter();
 
     const handleClick = () => {
