@@ -21,8 +21,8 @@ export default async function Home() {
 
             {!isLoggedIn && (
               <div className="mt-8 flex justify-center space-x-4">
-                <CustomButton text="Login" className="px-6 py-3 text-foreground bg-background hover:border-foreground hover:shadow-lg rounded-xl bg-linear-to-r hover:from-background hover:to-background-1 shadow-sm transition duration-300" />
-                <CustomButton text="Sign Up" className="px-6 py-3 text-background bg-linear-to-r from-green-600 to-green-500 hover:from-green-400 hover:to-green-300 rounded-xl shadow-sm hover:shadow-lg transition duration-300" />
+                <CustomButton text="Login" endpt="/auth/login" className="px-6 py-3 text-foreground bg-background hover:border-foreground hover:shadow-lg rounded-xl bg-linear-to-r hover:from-background hover:to-background-1 shadow-sm transition duration-300" />
+                <CustomButton text="Sign Up" endpt="/auth/signup" className="px-6 py-3 text-background bg-linear-to-r from-green-600 to-green-500 hover:from-green-400 hover:to-green-300 rounded-xl shadow-sm hover:shadow-lg transition duration-300" />
               </div>
             )}
           </div>
