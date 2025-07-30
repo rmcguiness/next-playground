@@ -31,32 +31,33 @@ const ThemeSwitcher = () => {
     return (
         <DropdownMenu dir="rtl">
             <DropdownMenuTrigger asChild>
-                <Button variant="primary" size={"sm"}>
+                <Button variant="primary" size={"sm"} className="p-2 rounded hover:bg-background-1 focus:outline-foreground">
                     {theme === "light" ? (
                         <Sun
                             key="light"
                             size={ICON_SIZE}
-                            className={"text-yin"}
+                            className={"text-black"}
                         />
                     ) : theme === "dark" ? (
                         <Moon
                             key="dark"
                             size={ICON_SIZE}
-                            className={"text-yin"}
+                            className={"text-white"}
                         />
                     ) : (
                         <Laptop
                             key="system"
                             size={ICON_SIZE}
-                            className={"text-yin"}
+                            className={"text-foreground"}
                         />
                     )}
                 </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-content" align="start">
+            <DropdownMenuContent className="w-content bg-background" align="start">
                 <DropdownMenuRadioGroup
                     value={theme}
                     onValueChange={(e) => setTheme(e)}
+
                 >
                     <DropdownMenuRadioItem className="flex gap-2" value="light">
                         <Sun size={ICON_SIZE} className="text-muted-foreground" />{" "}

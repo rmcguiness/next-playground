@@ -29,7 +29,7 @@ export default function DropDown({ label, children }: { label: string, children:
 
     return (
         <div className="relative">
-            <button className="flex justify-between items-center w-full px-4 py-2 text-sm text-gray-500 border-b border-gray-100 cursor-pointer hover:bg-gray-50"
+            <button className="flex justify-between items-center w-full px-4 py-2 text-sm text-foreground border-b border-gray-100 cursor-pointer hover:bg-background-2"
                 onClick={(e) => {
                     toggleDropdown();
                     e.currentTarget.querySelector('svg')?.classList.toggle('rotate-180');
