@@ -11,9 +11,9 @@ export default async function Home() {
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900">
               <span className="inline-block text-foreground">Next</span>
-              <span className="ml-2 inline-block text-secondary">Playground</span>
+              <span className="ml-2 inline-block text-green-500">Playground</span>
             </h1>
-            <p className="mt-6 max-w-2xl mx-auto text-xl text-paragraph">
+            <p className="mt-6 max-w-2xl mx-auto text-xl text-foreground-2">
               {isLoggedIn
                 ? "Explore cutting-edge Next.js features with interactive examples"
                 : "Sign in to explore cutting-edge Next.js features with interactive examples"}
@@ -21,8 +21,8 @@ export default async function Home() {
 
             {!isLoggedIn && (
               <div className="mt-8 flex justify-center space-x-4">
-                <CustomButton text="Login" className="px-6 py-3 text-base font-medium rounded-md text-white bg-linear-to-r from-slate-800 to-slate-700 hover:from-slate-700 hover:to-slate-600 shadow-md transition duration-300" />
-                <CustomButton text="Sign Up" className="px-6 py-3 text-base font-medium rounded-md text-white bg-linear-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 shadow-md transition duration-300" />
+                <CustomButton text="Login" className="px-6 py-3 text-foreground bg-background hover:border-foreground hover:shadow-lg rounded-xl bg-linear-to-r hover:from-background hover:to-background-1 shadow-sm transition duration-300" />
+                <CustomButton text="Sign Up" className="px-6 py-3 text-background bg-linear-to-r from-green-600 to-green-500 hover:from-green-400 hover:to-green-300 rounded-xl shadow-sm hover:shadow-lg transition duration-300" />
               </div>
             )}
           </div>
@@ -30,14 +30,14 @@ export default async function Home() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 z-1">
-        <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-          <div className="relative z-2 bg-white pb-8">
+        <div className="bg-background-1 rounded-2xl shadow-sm overflow-hidden">
+          <div className="relative z-2 pb-8">
             <div className="relative pt-8 px-4 sm:px-6 lg:px-8">
               <div className="text-center">
-                <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                <h2 className="text-3xl font-extrabold text-foreground sm:text-4xl">
                   Getting Started
                 </h2>
-                <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
+                <p className="mt-3 max-w-2xl mx-auto text-xl text-foreground-2 sm:mt-4">
                   Follow these steps to set up your own playground
                 </p>
               </div>
@@ -91,8 +91,8 @@ export default async function Home() {
               </div>
             </div>
 
-            <div className="mt-10 rounded-xl bg-linear-to-r from-slate-50 to-white p-6 border border-gray-200 shadow-sm">
-              <h3 className="text-lg font-bold text-gray-900 mb-4">Subjects Include</h3>
+            <div className="mt-10 rounded-xl bg-background-2 p-6 rounded ">
+              <h3 className="text-lg font-bold text-foreground-1 mb-4">Subjects Include</h3>
               <div className="grid gap-3 md:grid-cols-2">
                 <div className="flex items-start">
                   <div className="shrink-0">
@@ -100,7 +100,7 @@ export default async function Home() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <p className="ml-3 text-base text-gray-700">Suspense vs Loading Layout patterns</p>
+                  <p className="ml-3 text-base text-foreground-2">Suspense vs Loading Layout patterns</p>
                 </div>
                 <div className="flex items-start">
                   <div className="shrink-0">
@@ -108,7 +108,7 @@ export default async function Home() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <p className="ml-3 text-base text-gray-700">Promise-based Modal implementations</p>
+                  <p className="ml-3 text-base text-foreground-2">Promise-based Modal implementations</p>
                 </div>
                 <div className="flex items-start">
                   <div className="shrink-0">
@@ -116,7 +116,7 @@ export default async function Home() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <p className="ml-3 text-base text-gray-700">Dynamic Navbar with Supabase Auth</p>
+                  <p className="ml-3 text-base text-foreground-2">Dynamic Navbar with Supabase Auth</p>
                 </div>
                 <div className="flex items-start">
                   <div className="shrink-0">
@@ -124,7 +124,7 @@ export default async function Home() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <p className="ml-3 text-base text-gray-700">Jest and React Testing Library</p>
+                  <p className="ml-3 text-base text-foreground-2">Jest and React Testing Library</p>
                 </div>
               </div>
             </div>

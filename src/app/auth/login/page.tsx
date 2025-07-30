@@ -4,10 +4,10 @@ import { PasswordInput } from "../components/password-input";
 
 export default function LoginPage() {
     return (
-        <div className="bg-linear-to-b mt-12 sm:mx-6 lg:mx-8">
+        <div className="mt-12 sm:mx-6 lg:mx-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-md">
                 <div className="flex justify-center">
-                    <div className="bg-green-600 text-foreground p-2 rounded-md">
+                    <div className="bg-green-600 text-background p-2 rounded-md">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
                             <path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                         </svg>
@@ -25,10 +25,10 @@ export default function LoginPage() {
             </div>
 
             <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-                <div className="bg-white py-8 px-4 shadow-xl rounded-lg sm:px-10">
+                <div className="bg-background shadow-lg py-8 px-4 rounded-lg sm:px-10">
                     <form action={login} className="space-y-6">
                         <div>
-                            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="email" className="text-sm font-medium text-foreground">
                                 Email address
                             </label>
                             <div className="mt-1">
@@ -54,15 +54,11 @@ export default function LoginPage() {
                                     type="checkbox"
                                     className="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded"
                                 />
-                                <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
+                                <label htmlFor="remember-me" className="ml-2 block text-sm text-foreground-1">
                                     Remember me
                                 </label>
                             </div>
-                            {/* <div className="text-sm">
-                                <a href="#" className="font-medium text-green-600 hover:text-green-500">
-                                    Forgot your password?
-                                </a>
-                            </div> */}
+
                         </div>
 
                         <div>

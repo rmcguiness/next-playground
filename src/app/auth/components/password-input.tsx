@@ -11,10 +11,10 @@ export const PasswordInput = () => {
     return (
         <div className="mb-6">
             <label
-                className="block text-sm font-medium text-gray-700"
+                className="text-sm font-medium text-foreground"
                 htmlFor="password"
             >
-                Password <span className="text-gray-400 text-xs">(minimum 6 characters)</span>
+                Password <span className="text-foreground-2 text-xs">(minimum 6 characters)</span>
             </label>
             <div className="relative">
                 <input

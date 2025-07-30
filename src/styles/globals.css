@@ -3,7 +3,11 @@
 
 :root {
 	--foreground: #000000;
+	--foreground-1: #292929;
+	--foreground-2: #4a4a4a;
 	--background: #ffffff;
+	--background-1: #f1efef;
+	--background-2: #dedede;
 	/* Color System */
 	--primary: rgb(29, 52, 114); /* blue-700 */
 	--secondary: rgb(10, 147, 97); /* gray-500 */
@@ -38,8 +42,12 @@
 }
 
 .dark {
-	--background: #000000;
+	--background: #121212;
+	--background-1: #212020;
+	--background-2: #323232;
 	--foreground: #ffffff;
+	--foreground-1: #dadada;
+	--foreground-2: #a5a5a5;
 	/* Color System */
 	--primary: rgb(19, 60, 173); /* blue-700 */
 	--secondary: rgb(33, 191, 133); /* gray-500 */
@@ -51,12 +59,18 @@
 	/* Map key variables to Tailwind classes */
 	--color-background: var(--background);
 	--color-foreground: var(--foreground);
+	--color-background-1: var(--background-1);
+	--color-background-2: var(--background-2);
+	--color-foreground-1: var(--foreground-1);
+	--color-foreground-2: var(--foreground-2);
 	--color-primary: var(--primary);
 	--color-secondary: var(--secondary);
 	--color-paragraph: var(--paragraph);
 	--color-muted: var(--muted);
 	--color-accent: var(--accent);
 	--color-destructive: var(--destructive);
+	--shadow-lg: 0 0px 10px -2px var(--foreground);
+	--shadow-sm: 0 0px 10px -4px var(--foreground);
 	/* ... other mappings for secondary, muted, accent, destructive, etc. ... */
 }
 
