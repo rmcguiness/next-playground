@@ -31,7 +31,7 @@ const ThemeSwitcher = () => {
     return (
         <DropdownMenu dir="rtl">
             <DropdownMenuTrigger asChild>
-                <Button variant="primary" size={"sm"} className="p-2 rounded hover:bg-background-1 focus:outline-foreground">
+                <Button variant="primary" size={"sm"} className="p-2 rounded-full hover:shadow-lg focus:outline-foreground">
                     {theme === "light" ? (
                         <Sun
                             key="light"

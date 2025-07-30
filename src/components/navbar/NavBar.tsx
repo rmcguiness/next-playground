@@ -18,7 +18,7 @@ export default async function NavBar() {
               <path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
             </svg>
           </div>
-          <span className="text- text-xl font-bold tracking-tight hidden md:inline">Next<span className="text-secondary">Playground</span></span>
+          <span className="text- text-xl font-bold tracking-tight hidden md:inline">Next<span className="text-green-500">Playground</span></span>
         </Link>
         <div className="flex items-center space-x-3">
           <ThemeSwitcher />
@@ -106,8 +106,8 @@ export default async function NavBar() {
             </div>
           ) : (
             <div className="flex items-center space-x-3">
-              <CustomButton text="Login" endpt="/auth/login" className="text-yin bg-slate-700 hover:bg-slate-600 px-5 py-2 rounded-full transition duration-300" />
-              <CustomButton text="Sign Up" endpt="/auth/signup" className="text-yin bg-linear-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 px-5 py-2 rounded-full shadow-md transition duration-300" />
+              <CustomButton text="Login" endpt="/auth/login" className="text-foreground bg-background hover:border-foreground hover:shadow-lg px-5 py-2 rounded-full transition duration-300" />
+              <CustomButton text="Sign Up" endpt="/auth/signup" className="text-background bg-linear-to-r from-green-600 to-green-500 hover:from-green-400 hover:to-green-300 px-5 py-2 rounded-full hover:shadow-sm transition duration-300" />
             </div>
           )}
         </div>

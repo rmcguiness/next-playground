@@ -44,7 +44,7 @@ export default function SignupPage() {
     }
 
     return (
-        <div className="min-h-screen bg-linear-to-b from-slate-900 to-slate-700 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div className="mt-12 sm:mx-6 lg:mx-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-md">
                 <div className="flex justify-center">
                     <div className="bg-green-600 text-white p-2 rounded-md">
@@ -53,10 +53,10 @@ export default function SignupPage() {
                         </svg>
                     </div>
                 </div>
-                <h1 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+                <h1 className="mt-6 text-center text-3xl font-extrabold text-foreground">
                     Create a new account
                 </h1>
-                <p className="mt-2 text-center text-sm text-gray-600">
+                <p className="mt-2 text-center text-sm text-foreground-1">
                     Or{' '}
                     <Link href="/auth/login" className="font-medium text-green-600 hover:text-green-500">
                         sign in to your existing account
@@ -65,13 +65,13 @@ export default function SignupPage() {
             </div>
 
             <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-                <div className="bg-white py-8 px-4 shadow-xl rounded-lg sm:px-10">
+                <div className="bg-background py-8 px-4 shadow-lg rounded-lg sm:px-10">
                     {/* Display error message if exists */}
                     {error && <ErrorAlert message={error} />}
 
                     <form action={handleSignup} className="space-y-6">
                         <div>
-                            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="email" className="block text-sm font-medium text-foreground">
                                 Email address
                             </label>
                             <div className="mt-1">
@@ -88,7 +88,7 @@ export default function SignupPage() {
                         </div>
 
                         <div>
-                            <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="phone" className="block text-sm font-medium text-foreground">
                                 Phone Number <span className="text-gray-400 text-xs">(optional)</span>
                             </label>
                             <div className="mt-1">
@@ -125,11 +125,11 @@ export default function SignupPage() {
                             </label>
                         </div> */}
 
-                        <div>
+                        <div className="pt-3">
                             <button
                                 type="submit"
                                 disabled={isLoading}
-                                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-linear-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+                                className="w-full flex justify-center  py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-linear-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
                             >
                                 {isLoading ? 'Signing up...' : 'Sign up'}
                             </button>

@@ -11,7 +11,7 @@ export default async function Home() {
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900">
               <span className="inline-block text-foreground">Next</span>
-              <span className="ml-2 inline-block text-secondary">Playground</span>
+              <span className="ml-2 inline-block text-green-500">Playground</span>
             </h1>
             <p className="mt-6 max-w-2xl mx-auto text-xl text-foreground-2">
               {isLoggedIn
@@ -21,8 +21,8 @@ export default async function Home() {
 
             {!isLoggedIn && (
               <div className="mt-8 flex justify-center space-x-4">
-                <CustomButton text="Login" className="px-6 py-3 text-base font-medium rounded-md text-white bg-linear-to-r from-slate-800 to-slate-700 hover:from-slate-700 hover:to-slate-600 shadow-md transition duration-300" />
-                <CustomButton text="Sign Up" className="px-6 py-3 text-base font-medium rounded-md text-white bg-linear-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 shadow-md transition duration-300" />
+                <CustomButton text="Login" className="px-6 py-3 text-foreground bg-background hover:border-foreground hover:shadow-lg rounded-xl bg-linear-to-r hover:from-background hover:to-background-1 shadow-sm transition duration-300" />
+                <CustomButton text="Sign Up" className="px-6 py-3 text-background bg-linear-to-r from-green-600 to-green-500 hover:from-green-400 hover:to-green-300 rounded-xl shadow-sm hover:shadow-lg transition duration-300" />
               </div>
             )}
           </div>
