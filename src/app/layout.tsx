@@ -9,7 +9,8 @@ import { ThemeProvider } from "next-themes";
 
 export const metadata: Metadata = {
   title: "Next Playground",
-  description: "A playground for Next.js to learn and experiment with new features",
+  description:
+    "A playground for Next.js to learn and experiment with new features",
   authors: [{ name: "ryanmcguiness" }],
   keywords: ["Next.js", "Playground", "Learn", "Experiment"],
   icons: {
@@ -30,7 +31,6 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -50,18 +50,13 @@ export default async function RootLayout({
             enableSystem={true}
             disableTransitionOnChange={true}
           >
-
             <NavBar />
             <main className="pt-16">
-              <div>
-                {children}
-              </div>
+              <div>{children}</div>
             </main>
-
           </ThemeProvider>
         </NonceProvider>
-
       </body>
-    </html >
+    </html>
   );
 }
