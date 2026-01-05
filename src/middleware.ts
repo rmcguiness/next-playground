@@ -18,7 +18,7 @@ export async function middleware(request: NextRequest) {
     object-src 'none';
     base-uri 'self';
     form-action 'self';
-    frame-ancestors https://rmcguiness.com https://mcg-consulting.vercel.app;
+    frame-ancestors https://rmcguiness.com https://mcg-consulting.vercel.app https://mcg-consulting.xyz/;
     upgrade-insecure-requests;
   `;
 	// Replace newline characters and spaces
