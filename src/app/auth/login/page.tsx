@@ -1,6 +1,7 @@
 import { login } from "@/actions/auth-actions";
 import Link from "next/link";
 import { PasswordInput } from "../components/password-input";
+import ThirdPartySignin from "../components/third-party-signin";
 
 export default function LoginPage() {
     return (
@@ -71,7 +72,7 @@ export default function LoginPage() {
                         </div>
                     </form>
 
-                    {/* <ThirdPartySignin /> */}
+                    <ThirdPartySignin />
                 </div>
             </div>
         </div>

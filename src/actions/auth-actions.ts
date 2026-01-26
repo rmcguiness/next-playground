@@ -76,3 +76,22 @@ export const getUser = async () => {
   const { data, error } = await supabase.auth.getUser();
   return { data, error };
 };
+
+export async function signInWithOAuth(provider: 'github' | 'google' | 'apple') {
+  const supabase = await createClient();
+
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider,
+    options: {
+      redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/auth/callback`,
+    },
+  });
+
+  if (error) {
+    redirect("/error");
+  }
+
+  if (data.url) {
+    redirect(data.url);
+  }
+}

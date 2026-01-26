@@ -5,7 +5,7 @@ import { signup } from "@/actions/auth-actions";
 import { PasswordInput } from "../components/password-input";
 import { useState } from "react";
 import ErrorAlert from "../components/error-alert";
-import Error from "next/error";
+import ThirdPartySignin from "../components/third-party-signin";
 
 
 export default function SignupPage() {
@@ -135,7 +135,7 @@ export default function SignupPage() {
                             </button>
                         </div>
                     </form>
-                    {/* <ThirdPartySignin /> */}
+                    <ThirdPartySignin />
                 </div>
             </div>
         </div>
