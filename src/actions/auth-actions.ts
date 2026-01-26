@@ -77,7 +77,7 @@ export const getUser = async () => {
   return { data, error };
 };
 
-export async function signInWithOAuth(provider: 'github' | 'google' | 'apple') {
+export async function signInWithOAuth(provider: 'github' | 'google' | 'facebook') {
   const supabase = await createClient();
 
   const { data, error } = await supabase.auth.signInWithOAuth({
