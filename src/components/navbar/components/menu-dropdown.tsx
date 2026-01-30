@@ -27,44 +27,79 @@ export default function MenuDropdown({ children }: MenuDropdownProps) {
     };
   }, [isOpen]);
 
+  // Close on Escape key
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && isOpen) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("keydown", handleEscape);
+      // Prevent body scroll when popover is open
+      document.body.style.overflow = "hidden";
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
+
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <div className="relative" ref={dropdownRef}>
-      <button
-        onClick={toggleDropdown}
-        className="flex items-center space-x-2 text-foreground bg-background-1 hover:bg-background-2 px-6 py-2 rounded-full transition duration-300 focus:outline-1"
-      >
-        <span>Menu</span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className={`h-5 w-5 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
+    <>
+      {/* Backdrop overlay */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 transition-opacity duration-300"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+
+      <div className="relative" ref={dropdownRef}>
+        <button
+          onClick={toggleDropdown}
+          className="flex items-center space-x-2 text-foreground bg-background-1 hover:bg-background-2 px-4 py-2 rounded-lg transition duration-300 focus:outline-none focus:ring-2 focus:ring-green-500/50"
+          aria-label="Toggle menu"
+          aria-expanded={isOpen}
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 9l-7 7-7-7"
-          />
-        </svg>
-      </button>
-      <div
-        className={`absolute right-0 mt-2 w-56 bg-background-1 rounded-lg shadow-xl transition-all duration-300 transform origin-top-right ${
-          isOpen
-            ? "opacity-100 visible translate-y-0"
-            : "opacity-0 invisible translate-y-2 pointer-events-none"
-        }`}
-      >
-        <div className="pt-2">
-          {children}
+          {/* Hamburger icon */}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+            />
+          </svg>
+          <span className="hidden sm:inline">Menu</span>
+        </button>
+
+        {/* Popover menu */}
+        <div
+          className={`fixed left-4 top-20 w-72 bg-background border border-gray-200 dark:border-gray-700 rounded-xl shadow-2xl transition-all duration-300 transform z-50 ${
+            isOpen
+              ? "opacity-100 visible translate-y-0 scale-100"
+              : "opacity-0 invisible -translate-y-4 scale-95 pointer-events-none"
+          }`}
+        >
+          <div className="max-h-[calc(100vh-6rem)] overflow-y-auto">
+            {children}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
