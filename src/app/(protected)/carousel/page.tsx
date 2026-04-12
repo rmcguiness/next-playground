@@ -18,7 +18,7 @@ export default function CarouselPage() {
         </h1>
       </div>
       <div className="max-w-3xl mx-auto">
-        <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+        <div className="bg-background-1 rounded-2xl shadow-xl overflow-hidden">
           <div className="relative">
             {/* Image container with fixed height */}
             <div className="relative h-64 sm:h-80 md:h-96">
@@ -31,48 +31,52 @@ export default function CarouselPage() {
               />
             </div>
             {/* Navigation arrows */}
-            {currentIndex > 0 && (
-              <button
-                onClick={() => setCurrentIndex(currentIndex - 1)}
-                className={styles.leftArrow}
-                aria-label="Previous item"
+            <button
+              onClick={() =>
+                setCurrentIndex(
+                  currentIndex === 0 ? items.length - 1 : currentIndex - 1
+                )
+              }
+              className={styles.leftArrow}
+              aria-label="Previous item"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 19l-7-7 7-7"
-                  />
-                </svg>
-              </button>
-            )}
-            {currentIndex < items.length - 1 && (
-              <button
-                onClick={() => setCurrentIndex(currentIndex + 1)}
-                className={styles.rightArrow}
-                aria-label="Next item"
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </button>
+            <button
+              onClick={() =>
+                setCurrentIndex(
+                  currentIndex === items.length - 1 ? 0 : currentIndex + 1
+                )
+              }
+              className={styles.rightArrow}
+              aria-label="Next item"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </button>
-            )}
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
           </div>
           {/* Pagination indicators */}
           <div className={styles.paginationContainer}>
@@ -89,15 +93,15 @@ export default function CarouselPage() {
           </div>
           {/* Content */}
           <div className="p-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">
+            <h2 className="text-2xl font-bold text-foreground mb-2">
               {currentItem.name}
             </h2>
-            <p className="text-gray-600">{currentItem.description}</p>
+            <p className="text-foreground-2">{currentItem.description}</p>
           </div>
         </div>
 
         <div className="text-center mt-8">
-          <p className="text-gray-600">
+          <p className="text-foreground-2">
             Item {currentIndex + 1} of {items.length}
           </p>
         </div>

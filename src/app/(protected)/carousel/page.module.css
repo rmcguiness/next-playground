@@ -2,31 +2,31 @@
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
-	background-color: rgba(255, 255, 255, 0.8);
+	background-color: rgba(0, 0, 0, 0.4);
 	padding: 0.5rem;
 	border-radius: 9999px;
 	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
 		0 2px 4px -1px rgba(0, 0, 0, 0.06);
 	transition: all 0.2s;
 
-	:hover {
-		background-color: rgba(255, 255, 255, 1);
+	&:hover {
+		background-color: rgba(0, 0, 0, 0.6);
 	}
 
 	svg {
 		height: 1.5rem;
 		width: 1.5rem;
-		color: #1f2937;
+		color: #ffffff;
 	}
 }
 
 .leftArrow {
-	@extend .navigationArrow;
+	composes: navigationArrow;
 	left: 1rem;
 }
 
 .rightArrow {
-	@extend .navigationArrow;
+	composes: navigationArrow;
 	right: 1rem;
 }
 
@@ -48,6 +48,6 @@
 	}
 
 	&.inactive {
-		background-color: #d1d5db;
+		background-color: var(--foreground-2);
 	}
 }

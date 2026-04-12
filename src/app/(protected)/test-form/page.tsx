@@ -152,9 +152,9 @@ export default function TestPage() {
       </h1>
 
       {submitted && (
-        <div className="bg-white rounded-xl shadow-lg p-6 mb-8 border-l-4 border-green-500">
-          <h2 className="text-2xl font-bold mb-4">Your Results</h2>
-          <p className="text-lg mb-4">
+        <div className="bg-background-1 rounded-xl shadow-lg p-6 mb-8 border-l-4 border-green-500">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Your Results</h2>
+          <p className="text-lg text-foreground-1 mb-4">
             You scored <span className="font-bold text-green-600">{score}</span>{" "}
             out of <span className="font-bold">{questions.length}</span>{" "}
             questions correctly.
@@ -174,9 +174,9 @@ export default function TestPage() {
         {questions.map((q) => (
           <div
             key={q.id}
-            className="bg-white rounded-xl shadow-md p-6 transition-all hover:shadow-lg"
+            className="bg-background-1 rounded-xl shadow-md p-6 transition-all hover:shadow-lg"
           >
-            <h3 className="text-xl font-semibold mb-4 text-gray-800">
+            <h3 className="text-xl font-semibold mb-4 text-foreground">
               {q.id}. {q.question}
             </h3>
             <div className="space-y-3">
@@ -186,8 +186,8 @@ export default function TestPage() {
                   className={`flex items-start p-3 rounded-lg border cursor-pointer transition-colors
                     ${
                       answers[q.id] === option
-                        ? "bg-green-50 border-green-300"
-                        : "bg-gray-50 border-gray-200 hover:bg-gray-100"
+                        ? "bg-green-500/10 border-green-500/40"
+                        : "bg-background-2/50 border-foreground-2/20 hover:bg-background-2"
                     }`}
                 >
                   <input
@@ -200,7 +200,7 @@ export default function TestPage() {
                     required={submitted ? false : true}
                     disabled={submitted}
                   />
-                  <span className="ml-3 text-gray-700">{option}</span>
+                  <span className="ml-3 text-foreground-1">{option}</span>
                   {submitted && option === q.correctAnswer && (
                     <span className="ml-auto text-green-600 font-medium">
                       ✓ Correct

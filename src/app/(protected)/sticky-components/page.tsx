@@ -25,19 +25,19 @@ export default function StickyComponentsPage() {
         <div className="md:w-2/5 lg:w-1/3">
           <div className="flex flex-col md:h-[calc(100vh-7rem)] sticky top-20">
             {/* Main sticky content */}
-            <div className="bg-white text-black rounded-lg shadow-lg p-6 flex-col">
+            <div className="bg-background-1 text-foreground rounded-lg shadow-lg p-6 flex-col">
               <h2 className="text-xl font-semibold mb-4">Sticky Left Column</h2>
-              <p className="text-gray-600 mb-4">
+              <p className="text-foreground-2 mb-4">
                 This column will stick to the viewport as you scroll down the
                 page.
               </p>
-              <div className="bg-gray-100 p-4 rounded-md mb-4">
+              <div className="bg-background-2/50 p-4 rounded-md mb-4">
                 <p className="font-medium">Current scroll position:</p>
                 <p className="text-green-600 font-mono">{scrollPosition}px</p>
               </div>
               <div className="space-y-4 overflow-y-auto max-h-[calc(100vh-250px)]">
                 {/* Your navigation sections */}
-                <div className="bg-gray-100 p-4 rounded-md">
+                <div className="bg-background-2/50 p-4 rounded-md">
                   <h3 className="font-medium mb-2">Navigation</h3>
                   <ul className="space-y-2">
                     <li className="hover:text-green-600 cursor-pointer">
@@ -59,9 +59,9 @@ export default function StickyComponentsPage() {
             </div>
 
             {/* Information section at bottom */}
-            <div className="bg-white text-black p-4 rounded-md mt-4 md:mt-auto  shadow-lg">
+            <div className="bg-background-1 text-foreground p-4 rounded-md mt-4 md:mt-auto shadow-lg">
               <h3 className="font-medium mb-2">Information</h3>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-foreground-2">
                 This is a demonstration of sticky positioning with React and
                 Tailwind CSS.
               </p>
@@ -71,7 +71,7 @@ export default function StickyComponentsPage() {
 
         {/* Right Column - Very long content */}
         <div className="md:w-3/5 lg:w-2/3" ref={rightColumnRef}>
-          <div className="bg-white text-black rounded-lg shadow-lg p-6">
+          <div className="bg-background-1 text-foreground rounded-lg shadow-lg p-6">
             <h2 className="text-2xl font-semibold mb-6">Long Content Column</h2>
 
             {Array.from({ length: 6 }).map((_, index) => (
@@ -99,7 +99,7 @@ export default function StickyComponentsPage() {
                     odio ac lectus vestibulum faucibus eget in metus.
                   </p>
                   {index % 2 === 0 && (
-                    <div className="bg-gray-100 p-4 rounded-md my-4">
+                    <div className="bg-background-2/50 p-4 rounded-md my-4">
                       <h4 className="font-medium mb-2">Important Note</h4>
                       <p className="text-sm">
                         This is an important note that highlights key

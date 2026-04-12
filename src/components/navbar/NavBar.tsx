@@ -5,7 +5,7 @@ import CustomButton from "@/components/buttons/dynamic-nav-button";
 import Link from "next/link";
 import { ThemeSwitcher } from "../theme-switcher/theme-switcher";
 import DropDown from "./components/drop-down";
-import MenuDropdown from "./components/menu-dropdown";
+import NavDrawer from "./components/nav-drawer";
 
 export default async function NavBar() {
   const { data } = await getUser();
@@ -13,8 +13,33 @@ export default async function NavBar() {
   return (
     <nav className="bg-background shadow-lg p-4 fixed w-full z-10">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
+        {/* Left: Logo */}
+        <div className="flex items-center space-x-2">
+          <Link href="/" className="flex items-center space-x-2">
+            <div className="bg-green-600 text-background p-2 rounded-md">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </div>
+            <span className="text-xl font-bold tracking-tight hidden md:inline">
+              Next<span className="text-green-500">Playground</span>
+            </span>
+          </Link>
+        </div>
+
+        {/* Right: ThemeSwitcher + Drawer */}
         <div className="flex items-center space-x-3">
-          <MenuDropdown>
+          <ThemeSwitcher />
+          <NavDrawer>
             {/* Tech Demos Section */}
             <DropDown label="Tech Demos">
               <a
@@ -160,28 +185,6 @@ export default async function NavBar() {
                 Demo 1
               </a>
             </DropDown>
-            {/* <DropDown label="Styles Showcase">
-              <a
-                href="/styles-showcase"
-                className="flex items-center px-4 py-3 text-foreground-1 hover:bg-background-2 "
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 mr-3 text-green-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                  />
-                </svg>
-                Styles Showcase
-              </a>
-            </DropDown> */}
             {/* Portfolios Section */}
             <DropDown label="Portfolios">
               <a
@@ -206,52 +209,29 @@ export default async function NavBar() {
               </a>
             </DropDown>
 
-            <div className="border-t border-gray-100">
-              <CustomButton
-                text={`${isLoggedIn ? "Sign Out" : "Sign In"}`}
-                className={`flex w-full items-center px-4 py-2  hover:bg-red-50  transition duration-200 rounded-b-lg ${isLoggedIn
-                  ? "text-red-300 hover:text-red-500"
-                  : "text-green-300 hover:text-green-500"
-                  }`}
-              />
-            </div>
-          </MenuDropdown>
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="bg-green-600 text-background p-2 rounded-md">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
-                  clipRule="evenodd"
+            {/* Auth section */}
+            <div className="border-t border-foreground-2/20 mt-4 pt-4">
+              {isLoggedIn ? (
+                <CustomButton
+                  text="Sign Out"
+                  className="flex w-full items-center px-4 py-2 hover:bg-red-50 transition duration-200 rounded-lg text-red-300 hover:text-red-500"
                 />
-              </svg>
+              ) : (
+                <div className="flex flex-col gap-2">
+                  <CustomButton
+                    text="Login"
+                    endpt="/auth/login"
+                    className="text-foreground bg-background hover:border-foreground hover:shadow-lg px-5 py-2 rounded-full transition duration-300 text-center"
+                  />
+                  <CustomButton
+                    text="Sign Up"
+                    endpt="/auth/signup"
+                    className="text-background bg-linear-to-r from-green-600 to-green-500 hover:from-green-400 hover:to-green-300 px-5 py-2 rounded-full hover:shadow-sm transition duration-300 text-center"
+                  />
+                </div>
+              )}
             </div>
-            <span className="text- text-xl font-bold tracking-tight hidden md:inline">
-              Next<span className="text-green-500">Playground</span>
-            </span>
-          </Link>
-        </div>
-        <div className="flex items-center space-x-3">
-          <ThemeSwitcher />
-          {!isLoggedIn && (
-            <div className="hidden sm:flex items-center space-x-3">
-              <CustomButton
-                text="Login"
-                endpt="/auth/login"
-                className="text-foreground bg-background hover:border-foreground hover:shadow-lg px-5 py-2 rounded-full transition duration-300"
-              />
-              <CustomButton
-                text="Sign Up"
-                endpt="/auth/signup"
-                className="text-background bg-linear-to-r from-green-600 to-green-500 hover:from-green-400 hover:to-green-300 px-5 py-2 rounded-full hover:shadow-sm transition duration-300"
-              />
-            </div>
-          )}
+          </NavDrawer>
         </div>
       </div>
     </nav>

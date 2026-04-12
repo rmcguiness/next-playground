@@ -27,6 +27,7 @@ export * from './card-wrapper/card-wrapper';
  * Components that handle navigation and menus
  */
 export * from './dropdown-menu/dropdown-menu';
+export * from './ui/Sheet';
 
 /**
  * Theme Components
