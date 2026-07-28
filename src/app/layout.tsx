@@ -1,11 +1,18 @@
 import type { Metadata, Viewport } from "next";
 import "@/styles/globals.css";
-import NavBar from "@/components/navbar/NavBar";
+import { Geist, Geist_Mono } from "next/font/google";
+import AppShell from "@/components/shell/app-shell";
 import { headers } from "next/headers";
 import { NonceProvider } from "@/context/NonceContext";
 import { ThemeProvider } from "next-themes";
 // import PlausibleProvider from "next-plausible";
 // import Scripts from "./_scripts/scritps";
+
+const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
+});
 
 export const metadata: Metadata = {
   title: "Next Playground",
@@ -39,7 +46,11 @@ export default async function RootLayout({
   const nonce = (await headers()).get("x-nonce") ?? "";
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${geistSans.variable} ${geistMono.variable}`}
+    >
       {/* <Scripts nonce={nonce} /> */}
       <body>
         <NonceProvider nonce={nonce}>
@@ -50,10 +61,7 @@ export default async function RootLayout({
             enableSystem={true}
             disableTransitionOnChange={true}
           >
-            <NavBar />
-            <main className="pt-16">
-              <div>{children}</div>
-            </main>
+            <AppShell>{children}</AppShell>
           </ThemeProvider>
         </NonceProvider>
       </body>
