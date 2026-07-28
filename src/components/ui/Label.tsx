@@ -8,7 +8,7 @@ const labelVariants = cva(
     {
         variants: {
             variant: {
-                default: 'text-gray-900',
+                default: 'text-foreground',
                 error: 'text-red-500',
                 success: 'text-green-600',
             },
@@ -43,11 +43,11 @@ const Label = React.forwardRef<
                     {children}
                     {required && <span className="ml-1 text-red-500">*</span>}
                     {optional && (
-                        <span className="ml-1 text-gray-500 text-xs">(optional)</span>
+                        <span className="ml-1 text-foreground-muted text-xs">(optional)</span>
                     )}
                 </LabelPrimitive.Root>
                 {description && (
-                    <p className="text-sm text-gray-500">{description}</p>
+                    <p className="text-sm text-foreground-muted">{description}</p>
                 )}
                 {error && variant === 'error' && (
                     <p className="text-sm text-red-500">{error}</p>

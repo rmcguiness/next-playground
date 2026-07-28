@@ -13,7 +13,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 const HeavyWidget = dynamic(() => import('./heavy-widget'), {
     ssr: false,
     loading: () => (
-        <div className="flex h-40 items-center justify-center rounded-lg bg-gray-50 text-sm text-gray-500">
+        <div className="flex h-40 items-center justify-center rounded-lg bg-surface text-sm text-foreground-muted">
             Loading widget chunk…
         </div>
     ),
@@ -38,7 +38,7 @@ export function LazyDemo() {
                 {show ? (
                     <HeavyWidget />
                 ) : (
-                    <p className="text-gray-600">
+                    <p className="text-foreground-2">
                         The widget&rsquo;s JavaScript has not been downloaded yet. Open your
                         browser&rsquo;s Network tab and click{' '}
                         <strong>Load widget</strong> — you&rsquo;ll see a new chunk fetched

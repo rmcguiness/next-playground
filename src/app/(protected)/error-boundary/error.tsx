@@ -25,9 +25,9 @@ export default function ErrorBoundary({
                     <CardTitle className="text-red-600">Something went wrong</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                    <p className="text-sm text-gray-700">{error.message}</p>
+                    <p className="text-sm text-foreground-2">{error.message}</p>
                     {error.digest && (
-                        <p className="text-xs text-gray-400">Digest: {error.digest}</p>
+                        <p className="text-xs text-foreground-muted">Digest: {error.digest}</p>
                     )}
                     <Button onClick={() => reset()}>Try again</Button>
                 </CardContent>

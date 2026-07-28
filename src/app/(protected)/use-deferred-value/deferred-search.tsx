@@ -36,7 +36,7 @@ const SlowList = memo(function SlowList({ query }: { query: string }) {
     return (
         <ul className="grid grid-cols-2 gap-1 sm:grid-cols-3">
             {matches.length === 0 && (
-                <li className="col-span-full text-sm text-gray-400">
+                <li className="col-span-full text-sm text-foreground-muted">
                     No fruit matches &ldquo;{query}&rdquo;.
                 </li>
             )}
@@ -54,7 +54,7 @@ function SlowItem({ text }: { text: string }) {
         // burn CPU to simulate an expensive component
     }
     return (
-        <li className="rounded-md border border-gray-200 px-2 py-1 text-sm text-gray-700">
+        <li className="rounded-md border border-border px-2 py-1 text-sm text-foreground-2">
             {text}
         </li>
     );
@@ -84,10 +84,10 @@ export function DeferredSearch() {
                         onChange={(e) => setQuery(e.target.value)}
                         placeholder="Try typing “berry” quickly"
                         autoComplete="off"
-                        className="w-64 rounded-md border border-gray-300 px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
+                        className="w-64 rounded-md border border-border px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
                     />
                 </div>
-                <label className="flex cursor-pointer items-center gap-2 py-2 text-sm text-gray-700">
+                <label className="flex cursor-pointer items-center gap-2 py-2 text-sm text-foreground-2">
                     <input
                         type="checkbox"
                         checked={deferralEnabled}
@@ -102,7 +102,7 @@ export function DeferredSearch() {
             </div>
             <div
                 className={cn(
-                    'rounded-md border border-gray-200 p-4 transition-opacity duration-200',
+                    'rounded-md border border-border p-4 transition-opacity duration-200',
                     isStale && 'opacity-50'
                 )}
             >

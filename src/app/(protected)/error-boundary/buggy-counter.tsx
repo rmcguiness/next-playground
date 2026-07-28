@@ -28,7 +28,7 @@ export function BuggyCounter() {
             </CardHeader>
             <CardContent className="space-y-4">
                 <p className="text-4xl font-bold tabular-nums">{count}</p>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-foreground-2">
                     Incrementing to {THRESHOLD} throws during render. The nearest{' '}
                     <code>error.tsx</code> boundary will take over.
                 </p>

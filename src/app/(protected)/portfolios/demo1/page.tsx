@@ -1,9 +1,13 @@
 import CardWrapper from "@/components/card-wrapper/card-wrapper";
+import { DemoShell } from "@/components/demo/demo-shell";
 
 export default function Demo1() {
   return (
-    <div>
-      <h1 className="text-center text-3xl font-bold my-8">Resume</h1>
+    <DemoShell
+      title="Resume"
+      description="A portfolio résumé page — one of the mock layouts built in this playground."
+      size="wide"
+    >
       <CardWrapper>
         <div className="max-w-3xl mx-auto px-4 py-8">
           <div className="mb-4 text-center">
@@ -220,6 +224,6 @@ export default function Demo1() {
           </div>
         </div>
       </CardWrapper>
-    </div>
+    </DemoShell>
   );
 }

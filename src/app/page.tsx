@@ -1,135 +1,85 @@
-import CustomButton from "@/components/buttons/dynamic-nav-button";
-import { getUser } from "@/actions/auth-actions";
+import Link from "next/link";
+import { Github, ArrowRight } from "lucide-react";
+import { DEMO_GROUPS, ALL_DEMOS } from "@/config/demos";
 
-export default async function Home() {
-  const { data } = await getUser()
-  const isLoggedIn = data?.user;
+export default function Home() {
   return (
-    <div>
-      <div className="pt-24 pb-16 md:pt-32 md:pb-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900">
-              <span className="inline-block text-foreground">Next</span>
-              <span className="ml-2 inline-block text-green-500">Playground</span>
-            </h1>
-            <p className="mt-6 max-w-2xl mx-auto text-xl text-foreground-2">
-              {isLoggedIn
-                ? "Explore cutting-edge Next.js features with interactive examples"
-                : "Sign in to explore cutting-edge Next.js features with interactive examples"}
-            </p>
-
-            {!isLoggedIn && (
-              <div className="mt-8 flex justify-center space-x-4">
-                <CustomButton text="Login" endpt="/auth/login" className="px-6 py-3 text-foreground bg-background hover:border-foreground hover:shadow-lg rounded-xl bg-linear-to-r hover:from-background hover:to-background-1 shadow-sm transition duration-300" />
-                <CustomButton text="Sign Up" endpt="/auth/signup" className="px-6 py-3 text-background bg-linear-to-r from-green-600 to-green-500 hover:from-green-400 hover:to-green-300 rounded-xl shadow-sm hover:shadow-lg transition duration-300" />
-              </div>
-            )}
-          </div>
+    <div className="mx-auto max-w-5xl px-6 py-14 md:py-20">
+      {/* Hero */}
+      <section className="max-w-2xl">
+        <span className="inline-flex items-center rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium text-foreground-2">
+          {ALL_DEMOS.length} interactive demos
+        </span>
+        <h1 className="mt-5 text-4xl font-semibold tracking-tight md:text-5xl">
+          Next<span className="text-primary">Playground</span>
+        </h1>
+        <p className="mt-4 text-lg text-foreground-muted">
+          A hands-on playground for modern React and Next.js — hooks, rendering
+          patterns, and UI building blocks, each with a live, minimal example.
+        </p>
+        <div className="mt-7 flex flex-wrap items-center gap-3">
+          <Link
+            href={ALL_DEMOS[0].href}
+            className="inline-flex items-center gap-2 rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-green-700"
+          >
+            Start exploring
+            <ArrowRight size={16} />
+          </Link>
+          <a
+            href="https://github.com/rmcguiness/next-playground"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-md border border-border px-4 py-2 text-sm font-medium text-foreground-2 transition-colors hover:bg-surface hover:text-foreground"
+          >
+            <Github size={16} />
+            View source
+          </a>
         </div>
-      </div>
+      </section>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 z-1">
-        <div className="bg-background-1 rounded-2xl shadow-sm overflow-hidden">
-          <div className="relative z-2 pb-8">
-            <div className="relative pt-8 px-4 sm:px-6 lg:px-8">
-              <div className="text-center">
-                <h2 className="text-3xl font-extrabold text-foreground sm:text-4xl">
-                  Getting Started
+      {/* Demo grid */}
+      <div className="mt-16 space-y-12">
+        {DEMO_GROUPS.map((group) => {
+          const GroupIcon = group.icon;
+          return (
+            <section key={group.label}>
+              <div className="mb-4 flex items-center gap-2">
+                <GroupIcon size={16} className="text-primary" />
+                <h2 className="text-sm font-semibold uppercase tracking-wider text-foreground-2">
+                  {group.label}
                 </h2>
-                <p className="mt-3 max-w-2xl mx-auto text-xl text-foreground-2 sm:mt-4">
-                  Follow these steps to set up your own playground
-                </p>
               </div>
-            </div>
-          </div>
-
-          <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
-            <div className="grid gap-6 md:grid-cols-2">
-              <div className="bg-gray-900 rounded-xl overflow-hidden shadow-md">
-                <div className="px-6 py-5 border-b border-gray-800">
-                  <div className="flex items-center">
-                    <div className="flex space-x-2">
-                      <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                      <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                      <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                    </div>
-                    <span className="ml-4 font-mono text-sm text-gray-400">Terminal</span>
-                  </div>
-                </div>
-                <div className="px-6 py-6">
-                  <p className="text-green-400 mb-2 font-mono text-sm"># Clone and install dependencies</p>
-                  <code className="text-gray-300 font-mono text-sm break-all">git clone https://github.com/rmcguiness/next-playground.git</code><br />
-                  <code className="text-gray-300 font-mono text-sm">cd next-playground</code><br />
-                  <code className="text-gray-300 font-mono text-sm">npm install</code>
-
-                  <p className="text-green-400 mb-2 mt-6 font-mono text-sm"># Run the development server</p>
-                  <code className="text-gray-300 font-mono text-sm">npm run dev</code>
-                </div>
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {group.demos.map((demo) => {
+                  const Icon = demo.icon;
+                  return (
+                    <Link
+                      key={demo.href}
+                      href={demo.href}
+                      className="group rounded-lg border border-border bg-card p-5 transition-all hover:border-primary/50 hover:shadow-sm"
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="flex h-9 w-9 items-center justify-center rounded-md bg-surface text-foreground-2 transition-colors group-hover:bg-primary/10 group-hover:text-primary">
+                          <Icon size={18} />
+                        </span>
+                        <ArrowRight
+                          size={16}
+                          className="text-foreground-subtle opacity-0 transition-opacity group-hover:opacity-100"
+                        />
+                      </div>
+                      <h3 className="mt-4 font-medium text-foreground">
+                        {demo.title}
+                      </h3>
+                      <p className="mt-1 text-sm text-foreground-muted">
+                        {demo.description}
+                      </p>
+                    </Link>
+                  );
+                })}
               </div>
-
-              <div className="bg-gray-900 rounded-xl overflow-hidden shadow-md">
-                <div className="px-6 py-5 border-b border-gray-800">
-                  <div className="flex items-center">
-                    <div className="flex space-x-2">
-                      <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                      <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                      <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                    </div>
-                    <span className="ml-4 font-mono text-sm text-gray-400">Browser</span>
-                  </div>
-                </div>
-                <div className="px-6 py-6">
-                  <p className="text-green-400 mb-2 font-mono text-sm"># Connect to Supabase</p>
-                  <code className="text-gray-300 font-mono text-sm">create a project at supabase.com</code><br />
-                  <code className="text-gray-300 font-mono text-sm">get your project URL and anon key from the project settings</code><br />
-                  <code className="text-gray-300 font-mono text-sm">add these to your .env.local file</code>
-
-                  <p className="text-green-400 mb-2 mt-6 font-mono text-sm"># Open your browser</p>
-                  <code className="text-blue-400 font-mono text-sm">http://localhost:3000</code>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-10 rounded-xl bg-background-2 p-6 rounded ">
-              <h3 className="text-lg font-bold text-foreground-1 mb-4">Subjects Include</h3>
-              <div className="grid gap-3 md:grid-cols-2">
-                <div className="flex items-start">
-                  <div className="shrink-0">
-                    <svg className="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <p className="ml-3 text-base text-foreground-2">Suspense vs Loading Layout patterns</p>
-                </div>
-                <div className="flex items-start">
-                  <div className="shrink-0">
-                    <svg className="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <p className="ml-3 text-base text-foreground-2">Promise-based Modal implementations</p>
-                </div>
-                <div className="flex items-start">
-                  <div className="shrink-0">
-                    <svg className="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <p className="ml-3 text-base text-foreground-2">Dynamic Navbar with Supabase Auth</p>
-                </div>
-                <div className="flex items-start">
-                  <div className="shrink-0">
-                    <svg className="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <p className="ml-3 text-base text-foreground-2">Jest and React Testing Library</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+            </section>
+          );
+        })}
       </div>
     </div>
   );

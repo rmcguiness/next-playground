@@ -42,9 +42,9 @@ export function MessageThread({ initialMessages }: { initialMessages: Message[] 
 
     return (
         <div className="flex flex-col gap-4 w-full max-w-md">
-            <ul className="flex flex-col gap-2 min-h-32 rounded-md border border-gray-200 p-4">
+            <ul className="flex flex-col gap-2 min-h-32 rounded-md border border-border p-4">
                 {optimisticMessages.length === 0 && (
-                    <li className="text-sm text-gray-400">No messages yet — send one below.</li>
+                    <li className="text-sm text-foreground-muted">No messages yet — send one below.</li>
                 )}
                 {optimisticMessages.map((message, index) => (
                     <li
@@ -52,7 +52,7 @@ export function MessageThread({ initialMessages }: { initialMessages: Message[] 
                         className={cn(
                             'rounded-md px-3 py-2 text-sm transition-opacity',
                             message.pending
-                                ? 'bg-gray-100 text-gray-500 italic opacity-70'
+                                ? 'bg-surface-2 text-foreground-muted italic opacity-70'
                                 : 'bg-primary-600 text-white'
                         )}
                     >
@@ -67,7 +67,7 @@ export function MessageThread({ initialMessages }: { initialMessages: Message[] 
                     name="message"
                     placeholder="Type a message"
                     autoComplete="off"
-                    className="flex-1 rounded-md border border-gray-300 px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
+                    className="flex-1 rounded-md border border-border px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
                 />
                 <Button type="submit">Send</Button>
             </form>

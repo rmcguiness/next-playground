@@ -52,7 +52,7 @@ export function StoreDemo() {
                             {isOnline ? 'Online' : 'Offline'}
                         </Badge>
                     </div>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-foreground-2">
                         Subscribes to the browser&rsquo;s <code>online</code> /{' '}
                         <code>offline</code> events. Toggle your network (or DevTools
                         offline mode) to watch it update.
@@ -71,7 +71,7 @@ export function StoreDemo() {
                         </span>
                         <Badge variant="info">{widthBucket(width)}</Badge>
                     </div>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-foreground-2">
                         Subscribes to the window <code>resize</code> event. Drag the
                         browser edge to resize and this re-renders in sync.
                     </p>

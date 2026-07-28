@@ -34,7 +34,7 @@ export function TabSwitcher() {
             <CardHeader className="space-y-4">
                 <div className="flex items-center justify-between">
                     <CardTitle>Tabbed navigation</CardTitle>
-                    <label className="flex items-center gap-2 text-sm text-gray-600 cursor-pointer">
+                    <label className="flex items-center gap-2 text-sm text-foreground-2 cursor-pointer">
                         <input
                             type="checkbox"
                             checked={useTransitions}
@@ -65,13 +65,13 @@ export function TabSwitcher() {
                 )}
             >
                 {tab === 'home' && (
-                    <p className="text-gray-600">
+                    <p className="text-foreground-2">
                         Welcome! This tab renders instantly. Now try the slow one.
                     </p>
                 )}
                 {tab === 'posts' && <SlowPosts />}
                 {tab === 'contact' && (
-                    <p className="text-gray-600">
+                    <p className="text-foreground-2">
                         Also instant. If you clicked here while &ldquo;Posts&rdquo; was still
                         rendering inside a transition, React abandoned that render and showed
                         this tab immediately.
@@ -98,7 +98,7 @@ function SlowPost({ index }: { index: number }) {
         // busy-wait
     }
     return (
-        <li className="rounded bg-gray-50 px-3 py-1.5 text-sm text-gray-700">
+        <li className="rounded bg-surface px-3 py-1.5 text-sm text-foreground-2">
             Post #{index + 1}
         </li>
     );

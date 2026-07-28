@@ -3,21 +3,19 @@
 import { useState } from "react";
 import Image from "next/image";
 import styles from "./page.module.css";
+import { DemoShell } from "@/components/demo/demo-shell";
 import { items } from "./items";
-// Sample data for carousel items
 
 export default function CarouselPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const currentItem = items[currentIndex];
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
-      <div className="text-center mb-6">
-        <h1 className="text-3xl text-foreground font-bold sm:text-4xl">
-          Image Carousel
-        </h1>
-      </div>
-      <div className="max-w-3xl mx-auto">
+    <DemoShell
+      title="Carousel"
+      description="An image carousel with arrow navigation and pagination dots."
+    >
+      <div className="mx-auto max-w-3xl">
         <div className="bg-background-1 rounded-2xl shadow-xl overflow-hidden">
           <div className="relative">
             {/* Image container with fixed height */}
@@ -106,6 +104,6 @@ export default function CarouselPage() {
           </p>
         </div>
       </div>
-    </div>
+    </DemoShell>
   );
 }

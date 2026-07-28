@@ -13,7 +13,7 @@ const buttonVariants = cva(
                 accent: 'bg-accent-500 text-white hover:bg-accent-600 focus-visible:ring-accent-500',
                 destructive: 'bg-destructive text-white hover:bg-destructive-dark focus-visible:ring-destructive',
                 outline: 'border-2 border-primary-600 text-primary-600 bg-transparent hover:bg-primary-50 focus-visible:ring-primary-500',
-                ghost: 'hover:bg-gray-100 text-gray-700 focus-visible:ring-gray-500',
+                ghost: 'hover:bg-surface text-foreground-2 focus-visible:ring-border-strong',
                 link: 'text-primary-600 underline-offset-4 hover:underline focus-visible:ring-primary-500',
             },
             size: {

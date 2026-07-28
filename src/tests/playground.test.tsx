@@ -16,11 +16,6 @@ jest.mock('next-intl', () => ({
     'button.cancel': 'Cancel'
   }[key] || key)
 }));
-jest.mock('@/components/navbar/NavBar', () => {
-  return function MockNavBar({ children }: { children?: React.ReactNode }) {
-    return <div data-testid="mock-navbar">{children}</div>;
-  };
-});
 jest.mock('next/headers', () => ({
   headers: () => ({
     headersList: [
