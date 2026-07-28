@@ -3,8 +3,9 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import { Badge } from '@/components/ui/Badge';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/Alert';
 import { Label } from '@/components/ui/Label';
-import { Info, AlertCircle, CheckCircle2, XCircle } from 'lucide-react';
+import { Info, AlertCircle, CheckCircle2 } from 'lucide-react';
 import { DemoShell } from '@/components/demo/demo-shell';
+import { DismissibleAlert } from './dismissible-alert';
 
 export default function DesignSystem() {
     return (
@@ -136,10 +137,7 @@ export default function DesignSystem() {
                         <AlertDescription>This is a warning alert message.</AlertDescription>
                     </Alert>
 
-                    <Alert variant="error" icon={<XCircle className="h-4 w-4" />} onDismiss={() => { }}>
-                        <AlertTitle>Error Alert</AlertTitle>
-                        <AlertDescription>This is an error alert message.</AlertDescription>
-                    </Alert>
+                    <DismissibleAlert />
                 </div>
             </section>
 
