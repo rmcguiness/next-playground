@@ -7,6 +7,95 @@ import { ThemeSwitcher } from "../theme-switcher/theme-switcher";
 import DropDown from "./components/drop-down";
 import NavDrawer from "./components/nav-drawer";
 
+// Outline (stroke) icon paths, keyed per group. Kept as data so the nav can be
+// rendered from the NAV_GROUPS table below instead of repeating an inline SVG
+// for every single link.
+const ICON_PATHS = {
+  bolt: "M13 10V3L4 14h7v7l9-11h-7z",
+  rendering:
+    "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15",
+  ui: "M4 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM14 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1v-4zM14 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z",
+  cube: "M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9",
+  document:
+    "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
+} as const;
+
+type IconKey = keyof typeof ICON_PATHS;
+
+const NAV_GROUPS: {
+  label: string;
+  icon: IconKey;
+  links: { href: string; label: string }[];
+}[] = [
+  {
+    label: "React Hooks",
+    icon: "bolt",
+    links: [
+      { href: "/use-optimistic", label: "useOptimistic" },
+      { href: "/use-deferred-value", label: "useDeferredValue" },
+      { href: "/use-action-state", label: "useActionState" },
+      { href: "/use-transition", label: "useTransition" },
+      { href: "/use-form-status", label: "useFormStatus" },
+      { href: "/use-sync-external-store", label: "useSyncExternalStore" },
+    ],
+  },
+  {
+    label: "Next.js & Rendering",
+    icon: "rendering",
+    links: [
+      { href: "/suspense-vs-layout/suspense", label: "Suspense Loading" },
+      {
+        href: "/suspense-vs-layout/skeleton-loading",
+        label: "Skeleton Loading",
+      },
+      { href: "/dynamic-import", label: "Dynamic Import" },
+      { href: "/route-handlers", label: "Route Handlers" },
+      { href: "/error-boundary", label: "Error Boundaries" },
+    ],
+  },
+  {
+    label: "UI & Components",
+    icon: "ui",
+    links: [
+      { href: "/carousel", label: "Carousel" },
+      { href: "/sticky-components", label: "Sticky Components" },
+      { href: "/promise-modal", label: "Promise Modal" },
+      { href: "/styles-showcase", label: "Styles Showcase" },
+      { href: "/design-system", label: "Design System" },
+      { href: "/test-form", label: "Next.js Quiz" },
+    ],
+  },
+  {
+    label: "Three.js Demos",
+    icon: "cube",
+    links: [{ href: "/threejs/demo1", label: "Demo 1" }],
+  },
+  {
+    label: "Portfolios",
+    icon: "document",
+    links: [{ href: "/portfolios/demo1", label: "Resume" }],
+  },
+];
+
+function NavIcon({ icon }: { icon: IconKey }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-5 w-5 mr-3 text-green-500 shrink-0"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d={ICON_PATHS[icon]}
+      />
+    </svg>
+  );
+}
+
 export default async function NavBar() {
   const { data } = await getUser();
   const isLoggedIn = data?.user;
@@ -40,174 +129,20 @@ export default async function NavBar() {
         <div className="flex items-center space-x-3">
           <ThemeSwitcher />
           <NavDrawer>
-            {/* Tech Demos Section */}
-            <DropDown label="Tech Demos">
-              <a
-                href="/suspense-vs-layout/suspense"
-                className="flex items-center px-4 py-3 text-foreground-1 hover:bg-background-2"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 mr-3 text-green-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 10V3L4 14h7v7l9-11h-7z"
-                  />
-                </svg>
-                Suspense Loading
-              </a>
-              <a
-                href="/suspense-vs-layout/skeleton-loading"
-                className="flex items-center px-4 py-3 text-foreground-1 hover:bg-background-2"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 mr-3 text-green-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-                  />
-                </svg>
-                Skeleton Loading
-              </a>
-              <a
-                href="/promise-modal"
-                className="flex items-center px-4 py-3 text-foreground-1 hover:bg-background-2"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 mr-3 text-green-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M8 9l4-4 4 4m0 6l-4 4-4-4"
-                  />
-                </svg>
-                Promise Modal
-              </a>
-              <a
-                href="/sticky-components"
-                className="flex items-center px-4 py-3 text-foreground-1 hover:bg-background-2"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 mr-3 text-green-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 4.5h14.25M3 9h9.75M3 13.5h9.75m4.5-4.5v12m0 0-3.75-3.75M17.25 21 21 17.25"
-                  />
-                </svg>
-                Sticky Components
-              </a>
-              <a
-                href="/carousel"
-                className="flex items-center px-4 py-3 text-foreground-1 hover:bg-background-2"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 mr-3 text-green-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9"
-                  />
-                </svg>
-                Carousel
-              </a>
-              <a
-                href="/test-form"
-                className="flex items-center px-4 py-3 text-foreground-1 hover:bg-background-2"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 mr-3 text-green-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                  />
-                </svg>
-                Next.js Quiz
-              </a>
-            </DropDown>
-            <DropDown label="Three.js Demos">
-              <a
-                href="/threejs/demo1"
-                className="flex items-center px-4 py-3 text-foreground-1 hover:bg-background-2"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 mr-3 text-green-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                  />
-                </svg>
-                Demo 1
-              </a>
-            </DropDown>
-            {/* Portfolios Section */}
-            <DropDown label="Portfolios">
-              <a
-                href="/portfolios/demo1"
-                className="flex items-center px-4 py-3 text-foreground-1 hover:bg-background-2 "
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 mr-3 text-green-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                  />
-                </svg>
-                Resume
-              </a>
-            </DropDown>
+            {NAV_GROUPS.map((group) => (
+              <DropDown key={group.label} label={group.label}>
+                {group.links.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="flex items-center px-4 py-3 text-foreground-1 hover:bg-background-2"
+                  >
+                    <NavIcon icon={group.icon} />
+                    {link.label}
+                  </a>
+                ))}
+              </DropDown>
+            ))}
 
             {/* Auth section */}
             <div className="border-t border-foreground-2/20 mt-4 pt-4">
