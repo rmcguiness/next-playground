@@ -21,11 +21,11 @@ export default function HeavyWidget() {
         <div className="space-y-4">
             <div className="flex items-center gap-2">
                 <Badge variant="success">Loaded on demand</Badge>
-                <span className="text-sm text-gray-600">
+                <span className="text-sm text-foreground-2">
                     This subtree shipped in its own chunk.
                 </span>
             </div>
-            <div className="flex h-40 items-end gap-2 rounded-lg bg-gray-50 p-4">
+            <div className="flex h-40 items-end gap-2 rounded-lg bg-surface p-4">
                 {bars.map((value, i) => (
                     <div key={i} className="flex flex-1 flex-col items-center gap-1">
                         <div
@@ -34,7 +34,7 @@ export default function HeavyWidget() {
                             )}
                             style={{ height: `${value}%` }}
                         />
-                        <span className="text-[10px] text-gray-500">{value}</span>
+                        <span className="text-[10px] text-foreground-muted">{value}</span>
                     </div>
                 ))}
             </div>

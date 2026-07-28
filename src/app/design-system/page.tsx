@@ -149,7 +149,7 @@ export default function DesignSystem() {
                         <input
                             id="default"
                             type="text"
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                            className="mt-1 block w-full rounded-md border-border shadow-sm focus:border-primary-500 focus:ring-primary-500"
                         />
                     </div>
 
@@ -160,7 +160,7 @@ export default function DesignSystem() {
                         <input
                             id="required"
                             type="text"
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                            className="mt-1 block w-full rounded-md border-border shadow-sm focus:border-primary-500 focus:ring-primary-500"
                         />
                     </div>
 
@@ -171,7 +171,7 @@ export default function DesignSystem() {
                         <input
                             id="optional"
                             type="text"
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                            className="mt-1 block w-full rounded-md border-border shadow-sm focus:border-primary-500 focus:ring-primary-500"
                         />
                     </div>
 
@@ -185,7 +185,7 @@ export default function DesignSystem() {
                         <input
                             id="with-description"
                             type="text"
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                            className="mt-1 block w-full rounded-md border-border shadow-sm focus:border-primary-500 focus:ring-primary-500"
                         />
                     </div>
 

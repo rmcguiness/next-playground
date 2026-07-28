@@ -61,7 +61,7 @@ export function DiceRoller() {
             </CardHeader>
             <CardContent className="space-y-5">
                 <div className="space-y-2">
-                    <p className="text-sm font-medium text-gray-700">Sides</p>
+                    <p className="text-sm font-medium text-foreground-2">Sides</p>
                     <div className="flex flex-wrap gap-2">
                         {SIDE_OPTIONS.map((s) => (
                             <Button
@@ -77,7 +77,7 @@ export function DiceRoller() {
                 </div>
 
                 <div className="space-y-2">
-                    <p className="text-sm font-medium text-gray-700">Dice to roll (POST): {count}</p>
+                    <p className="text-sm font-medium text-foreground-2">Dice to roll (POST): {count}</p>
                     <input
                         type="range"
                         min={1}
@@ -100,15 +100,15 @@ export function DiceRoller() {
                 {error && <p className="text-sm text-destructive">{error}</p>}
 
                 {getValue !== null && (
-                    <div className="rounded-md bg-gray-50 p-3 text-sm">
-                        <span className="text-gray-600">GET /api/dice?sides={sides} → </span>
+                    <div className="rounded-md bg-surface p-3 text-sm">
+                        <span className="text-foreground-2">GET /api/dice?sides={sides} → </span>
                         <span className="text-2xl font-bold tabular-nums">{getValue}</span>
                     </div>
                 )}
 
                 {postResult && (
-                    <div className="rounded-md bg-gray-50 p-3 text-sm space-y-1">
-                        <p className="text-gray-600">
+                    <div className="rounded-md bg-surface p-3 text-sm space-y-1">
+                        <p className="text-foreground-2">
                             POST /api/dice → {postResult.count} × d{postResult.sides}
                         </p>
                         <p className="font-mono">[{postResult.rolls.join(', ')}]</p>

@@ -47,7 +47,7 @@ export function SignupForm() {
                     type="text"
                     autoComplete="off"
                     defaultValue={state.values?.username}
-                    className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
+                    className="w-full rounded-md border border-border px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
                 />
             </div>
 
@@ -66,7 +66,7 @@ export function SignupForm() {
                     type="text"
                     autoComplete="off"
                     defaultValue={state.values?.email}
-                    className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
+                    className="w-full rounded-md border border-border px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
                 />
             </div>
 
@@ -74,7 +74,7 @@ export function SignupForm() {
                 {isPending ? 'Creating account…' : 'Create account'}
             </Button>
 
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-foreground-muted">
                 Tip: usernames <code>ryan</code>, <code>admin</code>, and <code>test</code>{' '}
                 are taken — try one to see server-side validation errors survive the
                 round-trip while your input is preserved.

@@ -62,23 +62,23 @@ export default function ClientButton({ modalInfo, remainingModalInfoPromise }: C
 
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center">
-          <div className="bg-white rounded-lg p-6 max-w-md w-full">
+          <div className="bg-card rounded-lg p-6 max-w-md w-full">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl font-semibold text-gray-800">{allModalInfo[currentIndex].title}</h2>
+              <h2 className="text-xl font-semibold text-foreground">{allModalInfo[currentIndex].title}</h2>
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="text-gray-500 hover:text-gray-700"
+                className="text-foreground-muted hover:text-foreground-2"
               >
                 ✕
               </button>
             </div>
-            <div className="mb-4 text-gray-600">
+            <div className="mb-4 text-foreground-2">
               <p>{allModalInfo[currentIndex].body}</p>
             </div>
             <div className="flex justify-end">
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 transition-colors"
+                className="px-4 py-2 bg-gray-200 text-foreground rounded-md hover:bg-gray-300 transition-colors"
               >
                 Close
               </button>

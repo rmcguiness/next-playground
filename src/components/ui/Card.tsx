@@ -7,10 +7,10 @@ const cardVariants = cva(
     {
         variants: {
             variant: {
-                default: 'bg-white border border-gray-200',
-                elevated: 'bg-white shadow-md hover:shadow-lg',
-                bordered: 'border-2 border-primary-200 bg-white',
-                ghost: 'bg-gray-50 hover:bg-gray-100',
+                default: 'bg-card border border-border',
+                elevated: 'bg-card border border-border shadow-sm hover:shadow-md',
+                bordered: 'border-2 border-primary-200 bg-card',
+                ghost: 'bg-surface hover:bg-surface-2',
             },
         },
         defaultVariants: {
@@ -68,7 +68,7 @@ const CardDescription = forwardRef<
 >(({ className, ...props }, ref) => (
     <p
         ref={ref}
-        className={cn('text-sm text-gray-500', className)}
+        className={cn('text-sm text-foreground-muted', className)}
         {...props}
     />
 ));

@@ -27,7 +27,7 @@ function FeedbackField() {
                 disabled={pending}
                 placeholder="Tell us what you think…"
                 className={cn(
-                    'w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500',
+                    'w-full rounded-md border border-border px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500',
                     pending && 'opacity-60'
                 )}
             />
@@ -54,7 +54,7 @@ export function FeedbackForm() {
             <FeedbackField />
             <SubmitButton />
 
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-foreground-muted">
                 Both the button and the textarea read the form&apos;s pending
                 state through <code>useFormStatus()</code> — no props are passed
                 down to coordinate them.

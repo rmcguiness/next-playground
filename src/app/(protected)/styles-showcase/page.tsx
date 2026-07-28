@@ -292,19 +292,19 @@ export default function StylesShowcase() {
       <section className="layout-stack mb-12">
         <h2 className="text-3xl font-semibold mb-4">Layout Patterns</h2>
         <div className="layout-stack gap-8">
-          <div className="layout-flex-center h-24 bg-gray-100 rounded-lg">
+          <div className="layout-flex-center h-24 bg-surface-2 rounded-lg">
             Centered Content
           </div>
-          <div className="layout-flex-between h-24 bg-gray-100 rounded-lg px-4">
+          <div className="layout-flex-between h-24 bg-surface-2 rounded-lg px-4">
             <span>Left</span>
             <span>Right</span>
           </div>
-          <div className="layout-stack-horizontal h-24 bg-gray-100 rounded-lg p-4">
+          <div className="layout-stack-horizontal h-24 bg-surface-2 rounded-lg p-4">
             <div>Item 1</div>
             <div>Item 2</div>
             <div>Item 3</div>
           </div>
-          <div className="relative h-24 bg-gray-100 rounded-lg">
+          <div className="relative h-24 bg-surface-2 rounded-lg">
             <div className="layout-absolute-center">Absolute Center</div>
           </div>
         </div>
