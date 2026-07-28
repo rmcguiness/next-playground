@@ -1,18 +1,19 @@
+import { Button } from "@/components/ui/Button";
 import {
-  Alert,
-  AlertTitle,
-  AlertDescription,
-  Badge,
-  Button,
   Card,
   CardHeader,
   CardTitle,
   CardDescription,
   CardContent,
   CardFooter,
-  Label,
-} from "@/components";
+} from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/Alert";
+import { Label } from "@/components/ui/Label";
 import { DemoShell } from "@/components/demo/demo-shell";
+
+const inputClass =
+  "w-full rounded-md border border-border bg-surface px-3 py-2 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary";
 
 export default function StylesShowcase() {
   return (
@@ -33,6 +34,8 @@ export default function StylesShowcase() {
               <Button variant="accent">Accent</Button>
               <Button variant="destructive">Destructive</Button>
               <Button variant="outline">Outline</Button>
+              <Button variant="ghost">Ghost</Button>
+              <Button variant="link">Link</Button>
             </div>
           </div>
 
@@ -40,7 +43,7 @@ export default function StylesShowcase() {
             <h3 className="text-xl font-medium mb-2">Sizes</h3>
             <div className="layout-stack-horizontal flex-wrap gap-4">
               <Button size="sm">Small</Button>
-              <Button size="default">Default</Button>
+              <Button size="md">Medium</Button>
               <Button size="lg">Large</Button>
             </div>
           </div>
@@ -65,7 +68,7 @@ export default function StylesShowcase() {
               <CardDescription>This is a default card example</CardDescription>
             </CardHeader>
             <CardContent>
-              <p>Card content goes here</p>
+              <p className="text-sm text-foreground-2">Card content goes here</p>
             </CardContent>
             <CardFooter>
               <Button variant="outline">Action</Button>
@@ -78,7 +81,7 @@ export default function StylesShowcase() {
               <CardDescription>This card has elevation</CardDescription>
             </CardHeader>
             <CardContent>
-              <p>Card content goes here</p>
+              <p className="text-sm text-foreground-2">Card content goes here</p>
             </CardContent>
           </Card>
 
@@ -88,17 +91,17 @@ export default function StylesShowcase() {
               <CardDescription>This card has a border</CardDescription>
             </CardHeader>
             <CardContent>
-              <p>Card content goes here</p>
+              <p className="text-sm text-foreground-2">Card content goes here</p>
             </CardContent>
           </Card>
 
           <Card variant="ghost">
             <CardHeader>
               <CardTitle>Ghost Card</CardTitle>
-              <CardDescription>This card is transparent</CardDescription>
+              <CardDescription>This card has a subtle surface</CardDescription>
             </CardHeader>
             <CardContent>
-              <p>Card content goes here</p>
+              <p className="text-sm text-foreground-2">Card content goes here</p>
             </CardContent>
           </Card>
         </div>
@@ -109,47 +112,20 @@ export default function StylesShowcase() {
         <h2 className="text-3xl font-semibold mb-4">Badges</h2>
         <div className="layout-stack gap-8">
           <div className="layout-stack">
-            <h3 className="text-xl font-medium mb-2">Default Badges</h3>
+            <h3 className="text-xl font-medium mb-2">Variants</h3>
             <div className="layout-stack-horizontal flex-wrap gap-4">
-              <Badge variant="primary">Primary</Badge>
+              <Badge variant="default">Default</Badge>
               <Badge variant="secondary">Secondary</Badge>
-              <Badge variant="accent">Accent</Badge>
               <Badge variant="success">Success</Badge>
               <Badge variant="warning">Warning</Badge>
               <Badge variant="info">Info</Badge>
               <Badge variant="destructive">Destructive</Badge>
+              <Badge variant="outline">Outline</Badge>
             </div>
           </div>
 
           <div className="layout-stack">
-            <h3 className="text-xl font-medium mb-2">Outline Badges</h3>
-            <div className="layout-stack-horizontal flex-wrap gap-4">
-              <Badge variant="primary" outline>
-                Primary
-              </Badge>
-              <Badge variant="secondary" outline>
-                Secondary
-              </Badge>
-              <Badge variant="accent" outline>
-                Accent
-              </Badge>
-              <Badge variant="success" outline>
-                Success
-              </Badge>
-              <Badge variant="warning" outline>
-                Warning
-              </Badge>
-              <Badge variant="info" outline>
-                Info
-              </Badge>
-              <Badge variant="destructive" outline>
-                Destructive
-              </Badge>
-            </div>
-          </div>
-
-          <div className="layout-stack">
-            <h3 className="text-xl font-medium mb-2">Badge Sizes</h3>
+            <h3 className="text-xl font-medium mb-2">Sizes</h3>
             <div className="layout-stack-horizontal flex-wrap gap-4">
               <Badge size="sm">Small</Badge>
               <Badge size="default">Default</Badge>
@@ -164,20 +140,17 @@ export default function StylesShowcase() {
         <h2 className="text-3xl font-semibold mb-4">Labels</h2>
         <div className="layout-grid layout-grid-cols-auto gap-6">
           <div className="layout-stack">
-            <Label htmlFor="required">Required Field</Label>
-            <input
-              type="text"
-              id="required"
-              className="border rounded p-2"
-              required
-            />
+            <Label htmlFor="required" required>
+              Required Field
+            </Label>
+            <input type="text" id="required" className={inputClass} required />
           </div>
 
           <div className="layout-stack">
             <Label htmlFor="optional" optional>
               Optional Field
             </Label>
-            <input type="text" id="optional" className="border rounded p-2" />
+            <input type="text" id="optional" className={inputClass} />
           </div>
 
           <div className="layout-stack">
@@ -187,21 +160,17 @@ export default function StylesShowcase() {
             >
               Field with Description
             </Label>
-            <input
-              type="text"
-              id="with-description"
-              className="border rounded p-2"
-            />
+            <input type="text" id="with-description" className={inputClass} />
           </div>
 
           <div className="layout-stack">
-            <Label htmlFor="error" variant="error">
+            <Label htmlFor="error" variant="error" error="This field is required">
               Error State
             </Label>
             <input
               type="text"
               id="error"
-              className="border border-red-500 rounded p-2"
+              className={`${inputClass} border-red-500 focus:border-red-500 focus:ring-red-500`}
             />
           </div>
         </div>
@@ -212,8 +181,13 @@ export default function StylesShowcase() {
         <h2 className="text-3xl font-semibold mb-4">Alerts</h2>
         <div className="layout-stack gap-4">
           <Alert>
-            <AlertTitle>Default Info Alert</AlertTitle>
-            <AlertDescription>This is a default info alert.</AlertDescription>
+            <AlertTitle>Default Alert</AlertTitle>
+            <AlertDescription>This is a default alert.</AlertDescription>
+          </Alert>
+
+          <Alert variant="info">
+            <AlertTitle>Info Alert</AlertTitle>
+            <AlertDescription>This is an info alert.</AlertDescription>
           </Alert>
 
           <Alert variant="success">
@@ -229,21 +203,6 @@ export default function StylesShowcase() {
           <Alert variant="error">
             <AlertTitle>Error Alert</AlertTitle>
             <AlertDescription>This is an error alert.</AlertDescription>
-          </Alert>
-
-          <Alert variant="info" size="sm">
-            <AlertTitle>Small Alert</AlertTitle>
-            <AlertDescription>This is a small alert.</AlertDescription>
-          </Alert>
-
-          <Alert variant="info" size="lg">
-            <AlertTitle>Large Alert</AlertTitle>
-            <AlertDescription>This is a large alert.</AlertDescription>
-          </Alert>
-
-          <Alert>
-            <AlertTitle>Dismissible Alert</AlertTitle>
-            <AlertDescription>This alert can be dismissed.</AlertDescription>
           </Alert>
         </div>
       </section>
@@ -268,22 +227,22 @@ export default function StylesShowcase() {
         <h2 className="text-3xl font-semibold mb-4">Animations</h2>
         <div className="layout-grid layout-grid-cols-auto gap-4">
           <Card className="animate-fade-in">
-            <CardContent>Fade In</CardContent>
+            <CardContent className="p-6">Fade In</CardContent>
           </Card>
           <Card className="animate-slide-in">
-            <CardContent>Slide In</CardContent>
+            <CardContent className="p-6">Slide In</CardContent>
           </Card>
           <Card className="animate-scale-in">
-            <CardContent>Scale In</CardContent>
+            <CardContent className="p-6">Scale In</CardContent>
           </Card>
           <Card className="animate-bounce-in">
-            <CardContent>Bounce In</CardContent>
+            <CardContent className="p-6">Bounce In</CardContent>
           </Card>
           <Card className="animate-spin-slow">
-            <CardContent>Spin</CardContent>
+            <CardContent className="p-6">Spin</CardContent>
           </Card>
           <Card className="animate-pulse-slow">
-            <CardContent>Pulse</CardContent>
+            <CardContent className="p-6">Pulse</CardContent>
           </Card>
         </div>
       </section>
@@ -314,7 +273,7 @@ export default function StylesShowcase() {
       <section className="layout-stack mb-12">
         <h2 className="text-3xl font-semibold mb-4">Glass Effect</h2>
         <div className="relative h-48 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg p-8">
-          <div className="glass p-4 rounded-lg">
+          <div className="glass p-4 rounded-lg text-white">
             <h3 className="text-xl font-medium mb-2">Glass Card</h3>
             <p>Content with glass effect</p>
           </div>

@@ -154,6 +154,129 @@
   to { transform: translateX(100%); }
 }
 
+/*
+ * Design-system helper utilities used by the styles-showcase demo (layout
+ * primitives, gradient swatches, entrance animations, glass effect). Defined
+ * in @layer components so real Tailwind utilities (e.g. gap-8) still override
+ * the defaults here.
+ */
+@keyframes ss-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes ss-slide-in {
+  from { opacity: 0; transform: translateX(-1rem); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes ss-scale-in {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes ss-bounce-in {
+  0% { opacity: 0; transform: scale(0.8); }
+  60% { opacity: 1; transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+@keyframes ss-spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes ss-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@layer components {
+  .layout-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .layout-stack-horizontal {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .layout-grid {
+    display: grid;
+  }
+  .layout-grid-cols-auto {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+  .layout-flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .layout-flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .layout-absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .gradient-primary {
+    background-image: linear-gradient(135deg, #22c55e, #15803d);
+  }
+  .gradient-accent {
+    background-image: linear-gradient(135deg, #10b981, #0ea5e9);
+  }
+  .gradient-success {
+    background-image: linear-gradient(135deg, #34d399, #16a34a);
+  }
+  .gradient-warning {
+    background-image: linear-gradient(135deg, #fbbf24, #f97316);
+  }
+  .gradient-info {
+    background-image: linear-gradient(135deg, #3b82f6, #6366f1);
+  }
+  .gradient-dark {
+    background-image: linear-gradient(135deg, #374151, #111827);
+  }
+  .gradient-light {
+    background-image: linear-gradient(135deg, #f3f4f6, #cbd5e1);
+  }
+  .gradient-fade {
+    background-image: linear-gradient(135deg, #22c55e, rgba(34, 197, 94, 0));
+  }
+  .gradient-text {
+    background-image: linear-gradient(135deg, #22c55e, #15803d);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glass {
+    background-color: rgba(255, 255, 255, 0.12);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  .animate-fade-in {
+    animation: ss-fade-in 0.5s ease-out both;
+  }
+  .animate-slide-in {
+    animation: ss-slide-in 0.5s ease-out both;
+  }
+  .animate-scale-in {
+    animation: ss-scale-in 0.4s ease-out both;
+  }
+  .animate-bounce-in {
+    animation: ss-bounce-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+  .animate-spin-slow {
+    animation: ss-spin 3s linear infinite;
+  }
+  .animate-pulse-slow {
+    animation: ss-pulse 2.5s ease-in-out infinite;
+  }
+}
+
 @layer base {
   body {
     background-color: var(--background);
