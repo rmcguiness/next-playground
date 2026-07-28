@@ -5,8 +5,8 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
 import { Font } from "three/examples/jsm/loaders/FontLoader.js";
-// eslint-disable-next-line @typescript-eslint/no-require-imports
 import helvetikerBold from "three/examples/fonts/helvetiker_bold.typeface.json";
+import { DemoShell } from "@/components/demo/demo-shell";
 
 export default function ThreeJsTileDemo() {
   const mountRef = useRef<HTMLDivElement>(null);
@@ -22,13 +22,13 @@ export default function ThreeJsTileDemo() {
 
     const camera = new THREE.PerspectiveCamera(
       100, // Field of view
-      window.innerWidth / window.innerHeight, // Aspect ratio
+      curr.clientWidth / curr.clientHeight, // Aspect ratio
       0.1, // Near clipping plane
       1000, // Far clipping plane
     );
 
     const renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(curr.clientWidth, curr.clientHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.shadowMap.enabled = true;
 
@@ -272,9 +272,9 @@ export default function ThreeJsTileDemo() {
 
     // Handle window resize
     const handleResize = () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.aspect = curr.clientWidth / curr.clientHeight;
       camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setSize(curr.clientWidth, curr.clientHeight);
     };
 
     window.addEventListener("resize", handleResize);
@@ -301,8 +301,15 @@ export default function ThreeJsTileDemo() {
   }, []);
 
   return (
-    <div className="w-full h-screen">
-      <div ref={mountRef} className="w-full h-full" />
-    </div>
+    <DemoShell
+      title="Three.js — 3D Scene"
+      description="An interactive 3D scene built with Three.js — drag to orbit the camera, scroll to zoom."
+      size="full"
+    >
+      <div
+        ref={mountRef}
+        className="h-[70vh] w-full overflow-hidden rounded-lg border border-border bg-[#111]"
+      />
+    </DemoShell>
   );
 }

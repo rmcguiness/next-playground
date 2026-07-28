@@ -169,6 +169,15 @@
     background-color: color-mix(in srgb, var(--green-500) 25%, transparent);
   }
 
+  /* Inline code (not fenced blocks) gets a subtle chip treatment. */
+  :where(:not(pre) > code) {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    background-color: var(--surface-2);
+    padding: 0.1em 0.35em;
+    border-radius: var(--radius-sm);
+  }
+
   /* Thin, unobtrusive scrollbars that match the theme */
   * {
     scrollbar-width: thin;

@@ -12,14 +12,15 @@ import {
   CardFooter,
   Label,
 } from "@/components";
+import { DemoShell } from "@/components/demo/demo-shell";
 
 export default function StylesShowcase() {
   return (
-    <div className="layout-container py-8">
-      <h1 className="text-4xl font-bold mb-8 gradient-primary gradient-text">
-        Design System Showcase
-      </h1>
-
+    <DemoShell
+      title="Styles Showcase"
+      description="A broader tour of the styling primitives: components, gradients, animations, and layout helpers."
+      size="wide"
+    >
       {/* Buttons Section */}
       <section className="layout-stack mb-12">
         <h2 className="text-3xl font-semibold mb-4">Buttons</h2>
@@ -319,6 +320,6 @@ export default function StylesShowcase() {
           </div>
         </div>
       </section>
-    </div>
+    </DemoShell>
   );
 }

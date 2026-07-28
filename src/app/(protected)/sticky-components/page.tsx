@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { DemoShell } from "@/components/demo/demo-shell";
 
 export default function StickyComponentsPage() {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -18,14 +19,17 @@ export default function StickyComponentsPage() {
   }, []);
 
   return (
-    <div className=" mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-8">Sticky Components Demo</h1>
+    <DemoShell
+      title="Sticky Components"
+      description="The left column stays pinned to the viewport with position: sticky while the long right column scrolls past it."
+      size="wide"
+    >
       <div className="flex flex-col md:flex-row gap-8">
         {/* Left Column - Takes up less than half the page and sticks when scrolling */}
         <div className="md:w-2/5 lg:w-1/3">
-          <div className="flex flex-col md:h-[calc(100vh-7rem)] sticky top-20">
+          <div className="flex flex-col md:h-[calc(100vh-7rem)] sticky top-6">
             {/* Main sticky content */}
-            <div className="bg-background-1 text-foreground rounded-lg shadow-lg p-6 flex-col">
+            <div className="bg-background-1 text-foreground rounded-lg border border-border p-6 flex-col">
               <h2 className="text-xl font-semibold mb-4">Sticky Left Column</h2>
               <p className="text-foreground-2 mb-4">
                 This column will stick to the viewport as you scroll down the
@@ -59,7 +63,7 @@ export default function StickyComponentsPage() {
             </div>
 
             {/* Information section at bottom */}
-            <div className="bg-background-1 text-foreground p-4 rounded-md mt-4 md:mt-auto shadow-lg">
+            <div className="bg-background-1 text-foreground p-4 rounded-md mt-4 md:mt-auto border border-border">
               <h3 className="font-medium mb-2">Information</h3>
               <p className="text-sm text-foreground-2">
                 This is a demonstration of sticky positioning with React and
@@ -71,14 +75,12 @@ export default function StickyComponentsPage() {
 
         {/* Right Column - Very long content */}
         <div className="md:w-3/5 lg:w-2/3" ref={rightColumnRef}>
-          <div className="bg-background-1 text-foreground rounded-lg shadow-lg p-6">
+          <div className="bg-background-1 text-foreground rounded-lg border border-border p-6">
             <h2 className="text-2xl font-semibold mb-6">Long Content Column</h2>
 
             {Array.from({ length: 6 }).map((_, index) => (
               <div key={index} className="mb-12">
-                <h3 className="text-xl font-medium mb-4">
-                  Section {index + 1}
-                </h3>
+                <h3 className="text-xl font-medium mb-4">Section {index + 1}</h3>
                 <div className="prose max-w-none">
                   <p className="mb-4">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -121,6 +123,6 @@ export default function StickyComponentsPage() {
           </div>
         </div>
       </div>
-    </div>
+    </DemoShell>
   );
 }

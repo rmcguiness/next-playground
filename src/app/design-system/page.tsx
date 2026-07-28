@@ -4,17 +4,16 @@ import { Badge } from '@/components/ui/Badge';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/Alert';
 import { Label } from '@/components/ui/Label';
 import { Info, AlertCircle, CheckCircle2, XCircle } from 'lucide-react';
+import { DemoShell } from '@/components/demo/demo-shell';
 
 export default function DesignSystem() {
     return (
-        <div className="container py-10 space-y-12">
-            <section>
-                <h2 className="text-3xl font-bold mb-6">Design System</h2>
-                <p className="text-gray-600 mb-8">
-                    A showcase of our design system components built with Next.js, Tailwind CSS, and TypeScript.
-                </p>
-            </section>
-
+        <DemoShell
+            title="Design System"
+            description="The base UI component library — buttons, cards, badges, alerts, and labels with their variants."
+            size="wide"
+            className="space-y-12"
+        >
             <section>
                 <h3 className="text-2xl font-semibold mb-4">Typography</h3>
                 <div className="space-y-4">
@@ -208,6 +207,6 @@ export default function DesignSystem() {
                     </div>
                 </div>
             </section>
-        </div>
+        </DemoShell>
     );
-} 
+}

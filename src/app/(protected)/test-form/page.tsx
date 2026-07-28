@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { DemoShell } from "@/components/demo/demo-shell";
 
 export default function TestPage() {
   const [answers, setAnswers] = useState<Record<number, string>>({});
@@ -146,11 +147,10 @@ export default function TestPage() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-foreground mb-8 text-center">
-        Next.js Knowledge Quiz
-      </h1>
-
+    <DemoShell
+      title="Next.js Quiz"
+      description="A ten-question quiz that validates your answers on submit and scores the result."
+    >
       {submitted && (
         <div className="bg-background-1 rounded-xl shadow-lg p-6 mb-8 border-l-4 border-green-500">
           <h2 className="text-2xl font-bold text-foreground mb-4">Your Results</h2>
@@ -230,6 +230,6 @@ export default function TestPage() {
           </div>
         )}
       </form>
-    </div>
+    </DemoShell>
   );
 }
