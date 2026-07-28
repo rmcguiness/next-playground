@@ -19,7 +19,6 @@ import {
   Pin,
   MessageSquare,
   Palette,
-  Component,
   ListChecks,
   type LucideIcon,
 } from "lucide-react";
@@ -144,16 +143,10 @@ export const DEMO_GROUPS: DemoGroup[] = [
         icon: MessageSquare,
       },
       {
-        title: "Styles Showcase",
-        href: "/styles-showcase",
-        description: "A tour of the styling primitives.",
-        icon: Palette,
-      },
-      {
         title: "Design System",
         href: "/design-system",
-        description: "Base UI components and their variants.",
-        icon: Component,
+        description: "Components, tokens, gradients, and animations.",
+        icon: Palette,
       },
       {
         title: "Next.js Quiz",

@@ -155,7 +155,7 @@
 }
 
 /*
- * Design-system helper utilities used by the styles-showcase demo (layout
+ * Design-system helper utilities used by the design-system page (layout
  * primitives, gradient swatches, entrance animations, glass effect). Defined
  * in @layer components so real Tailwind utilities (e.g. gap-8) still override
  * the defaults here.
