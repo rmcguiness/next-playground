@@ -2,14 +2,14 @@
 import { useEffect, useState } from "react";
 import { Laptop, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
+import { Button } from "@/components/ui/Button";
 import {
-    Button,
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuRadioGroup,
     DropdownMenuRadioItem,
     DropdownMenuTrigger,
-} from "@/components/index";
+} from "@/components/dropdown-menu/dropdown-menu";
 
 
 
@@ -31,7 +31,7 @@ const ThemeSwitcher = () => {
     return (
         <DropdownMenu dir="rtl">
             <DropdownMenuTrigger asChild>
-                <Button variant="primary" size={"sm"} className="p-2 rounded-full hover:shadow-lg focus:outline-foreground">
+                <Button variant="ghost" size={"sm"} className="p-2 rounded-full">
                     {theme === "light" ? (
                         <Sun
                             key="light"
